@@ -132,7 +132,7 @@ def simulation(Natoms=3,detuning=0,
 	#set up the simulation
 	print("Setting up the simulation...")
 	# opts=None
-	opts = qutip.solver.Options(nsteps=12000)
+	opts = qutip.solver.Options(nsteps=120000)
 	print("Executing simulation...")
 	solution = mesolve(
 		H=H,
