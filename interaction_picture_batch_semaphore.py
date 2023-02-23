@@ -2,10 +2,25 @@ import subprocess
 import numpy as np
 from time import sleep, time
 from multiprocessing import Semaphore
+import os
+import pandas as pd
+import argparse
+
+#Argument Parser
+parser = argparse.ArgumentParser(
+	description='Atom-Cavity System Simulation'
+)
+parser.add_argument('-p', type=int, nargs='?', default=10, help='number of atoms in the system (default: 1)')
+args = parser.parse_args()
+
+max_processes = args.p
+
+
 
 N = 3
 Tmax = 60
-fname_root = 'batch/data'
+folder = 'batch'
+fname_root = f'{folder}/data'
 GAMMA_SI = 180e3/2/np.pi
 KAPPA_SI = 500E3/2/np.pi
 ETA = 4
@@ -21,7 +36,6 @@ answer = input(f"This code has {number_of_params} parameters. Do you still want 
 
 if answer.lower() == 'y':
 	# create a semaphore to limit the number of concurrent processes
-	max_processes = 10
 	semaphore = Semaphore(max_processes)
 	# list to store the processes
 	processes = []
@@ -49,11 +63,12 @@ if answer.lower() == 'y':
 					semaphore.release()  # release the permit to the semaphore
 					print(f"Process finished. {remaining_processes} processes remaining.")
 					remaining_processes -= 1
-					print(f"Process took {time()-start_times[i]}s to complete.")
+					print(f"Process took {time()-start_times[i]:.2f}s to complete.")
+					del start_times[i]
 					if p.poll() !=0:
-						print(f"Std Err: {str(stderr)}")
-						input("Continue?")
-
+						print(f"Std Err: {stderr.decode('utf-8')}")
+						raise Exception("Subprocess returned error.")
+					break; #restart loop so it checks through all the processes again.
 
 	# check if any of the processes have finished and remove them from the list
 	while len(processes) > 0:
@@ -65,6 +80,24 @@ if answer.lower() == 'y':
 				print(f"Process finished. {len(processes)} processes remaining.")
 				print(f"Std Err: {str(stderr)}")
 
+	#compile all the csv's into a single dataframe.
+	dataframes = []
+	try:
+		combined_df = pd.read_csv(fname_root + '.csv', index_col=0, header=0)
+		combined_df.drop(combined_df.columns[0])
+		dataframes.append(combined_df)
+	except:
+		pass
+	filenames = os.listdir(folder)
+	for fname in filenames:
+		if fname.endswith('.csv'):
+			filepath = os.path.join(folder, fname)
+			df = pd.read_csv(filepath)
+			dataframes.append(df)
+			os.remove(filepath)
+
+	combined_df = pd.concat(dataframes, ignore_index=True)
+	combined_df.to_csv(fname_root + '.csv', index=False)
 
 else:
 	print("Code execution cancelled by the user.")
