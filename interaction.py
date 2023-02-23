@@ -86,7 +86,7 @@ def simulation(Natoms=3,detuning=0,
 	kappa = kappa_si/scale
 	Gamma = Gamma_si/scale
 	omega = omega_si/scale
-	detuning = detuning
+	detuning = detuning/scale
 	Lambda = Lambda/scale
 	parameters_to_save = {
 		'N': Natoms,
