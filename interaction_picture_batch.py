@@ -32,9 +32,12 @@ if answer.lower() == 'y':
 	while processes:
 		for process in processes:
 			if process.poll() is not None:
+				return_code = process.poll()
+				stdout, stderr = process.communicate()
 				processes.remove(process)
 				num_completed += 1
-				print(f"{num_completed} processes completed out of {number_of_params}.")
+				print(f"{num_completed} processes completed out of {number_of_params}: Return code was {return_code}")
+				print(f"Std Error: {stderr}")
 				break # process list has been modified, so restart loop
 else:
 	print("Code execution cancelled by the user.")
