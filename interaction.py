@@ -5,11 +5,12 @@ import numpy as np
 
 SAVE_ARRAYS = False
 
-GAMMA_SI = 180e3/2/np.pi*0
+GAMMA_SI = 180e3/2/np.pi
 KAPPA_SI = 500E3/2/np.pi
-ETA = 4*0
+ETA = 4
 G_SI = 2*np.pi*ETA*np.sqrt(GAMMA_SI*KAPPA_SI)/4
-OMEGA_SI = 2*np.pi*5e6*0
+# OMEGA_SI = 2*np.pi*5e6
+OMEGA_SI=10*KAPPA_SI
 LAMBDA_SI = 0.1*KAPPA_SI
 SCALE=KAPPA_SI
 #print a coupling constant in engineering notation

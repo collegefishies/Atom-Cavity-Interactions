@@ -11,6 +11,8 @@ parser = argparse.ArgumentParser(
 	description='Atom-Cavity System Simulation'
 )
 parser.add_argument('-p', type=int, nargs='?', default=10, help='number of atoms in the system (default: 1)')
+parser.add_argument('--onlycompile', action='store_true', help='a flag to only compile old csvs in cased simulation crashed earlier')
+
 args = parser.parse_args()
 
 max_processes = args.p
@@ -21,20 +23,23 @@ N = 3
 Tmax = 60
 folder = 'batch'
 fname_root = f'{folder}/data'
-GAMMA_SI = 180e3/2/np.pi
+# GAMMA_SI = 180e3/2/np.pi
 KAPPA_SI = 500E3/2/np.pi
-ETA = 4
-G_SI = 2*np.pi*ETA*np.sqrt(GAMMA_SI*KAPPA_SI)/4
-OMEGA_SI = 10*KAPPA_SI
-LAMBDA_SI = 0.1*KAPPA_SI
+# ETA = 4
+# G_SI = 2*np.pi*ETA*np.sqrt(GAMMA_SI*KAPPA_SI)/4
+# OMEGA_SI = 10*KAPPA_SI
+# LAMBDA_SI = 0.1*KAPPA_SI
 
 #parameters to test
 detuning_list = np.arange(-3*KAPPA_SI, 3*KAPPA_SI, KAPPA_SI/5)
 
 number_of_params = len(detuning_list)
-answer = input(f"This code has {number_of_params} parameters. Do you still want to run it? (y/n)")
+if not args.onlycompile:
+	answer = input(f"This code has {number_of_params} parameters. Do you still want to run it? (y/n)")
+else:
+	answer = 'n'
 
-if answer.lower() == 'y':
+if answer.lower() == 'y' and not args.onlycompile:
 	# create a semaphore to limit the number of concurrent processes
 	semaphore = Semaphore(max_processes)
 	# list to store the processes
@@ -79,7 +84,7 @@ if answer.lower() == 'y':
 				semaphore.release()  # release the permit to the semaphore
 				print(f"Process finished. {len(processes)} processes remaining.")
 				print(f"Std Err: {str(stderr)}")
-
+if answer.lower() == 'y' or args.onlycompile:
 	#compile all the csv's into a single dataframe.
 	dataframes = []
 	try:
