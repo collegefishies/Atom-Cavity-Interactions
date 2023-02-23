@@ -3,9 +3,8 @@ import argparse
 import pandas as pd
 import numpy as np
 import os 
+import time
 from interaction import simulation
-
-
 #Argument Parser Section
 #Argument Parser Section
 #Argument Parser Section
@@ -32,6 +31,7 @@ if not filename.endswith('.csv'):
 #Simulation Section
 print(f"Running simulation with {N} atoms and detuning {detuning}")
 data = simulation(Natoms=N, detuning=detuning, T=T)
+# data = {"fake data": np.random.random(), "intracavity_photon_number": np.nan, "detuning": detuning}
 intracavity_photon_number = data['intracavity_photon_number']
 print(f"Simulation returned {intracavity_photon_number}")
 
@@ -44,7 +44,6 @@ print(f"Simulation returned {intracavity_photon_number}")
 print(f"Opening the pandas dataframe \"{filename}\" file so far...")
 try:
 	df = pd.read_csv(filename)
-	print("Array opened: ", np.array(df['array'][0]))
 	append = True
 except FileNotFoundError:
 	append = False
@@ -57,9 +56,8 @@ if append:
 	df = pd.concat([df, df2], ignore_index=True)
 else:
 	df = df2
-
-
 print(f"Saving the result to a pandas dataframe...")
 df.to_csv(filename, index=False)
+
 print(f"Result saved to {filename} as a pandas dataframe in CSV format:")
 print(df)

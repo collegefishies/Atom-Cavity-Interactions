@@ -29,7 +29,7 @@ OMEGA_SI = 10*KAPPA_SI
 LAMBDA_SI = 0.1*KAPPA_SI
 
 #parameters to test
-detuning_list = np.arange(-1.1*OMEGA_SI, 1.1*OMEGA_SI, KAPPA_SI/2)
+detuning_list = np.arange(-3*KAPPA_SI, 3*KAPPA_SI, KAPPA_SI/5)
 
 number_of_params = len(detuning_list)
 answer = input(f"This code has {number_of_params} parameters. Do you still want to run it? (y/n)")

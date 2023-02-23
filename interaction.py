@@ -5,12 +5,13 @@ import numpy as np
 
 SAVE_ARRAYS = False
 
-GAMMA_SI = 180e3/2/np.pi
+GAMMA_SI = 180e3/2/np.pi*0
 KAPPA_SI = 500E3/2/np.pi
-ETA = 4
+ETA = 4*0
 G_SI = 2*np.pi*ETA*np.sqrt(GAMMA_SI*KAPPA_SI)/4
-OMEGA_SI = 2*np.pi*5e6
+OMEGA_SI = 2*np.pi*5e6*0
 LAMBDA_SI = 0.1*KAPPA_SI
+SCALE=KAPPA_SI
 #print a coupling constant in engineering notation
 print(f"Atom Coupling Constant: {G_SI:.2e} rad/s")
 
@@ -39,7 +40,7 @@ def simulation(Natoms=3,detuning=0,
 	g_si=G_SI,
 	omega_si=OMEGA_SI,
 	Lambda=LAMBDA_SI, #this parameter is the SHO driving strength
-	scale=G_SI,
+	scale=SCALE,
 	T=60):
 	#create the atom states
 	u = qutip.basis(3,0)
