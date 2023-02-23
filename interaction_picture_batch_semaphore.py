@@ -1,10 +1,10 @@
 import subprocess
 import numpy as np
-from time import sleep
+from time import sleep, time
 from multiprocessing import Semaphore
 
-N = 1
-Tmax = 0.1
+N = 3
+Tmax = 60
 fname_root = 'batch/data'
 GAMMA_SI = 180e3/2/np.pi
 KAPPA_SI = 500E3/2/np.pi
@@ -14,8 +14,7 @@ OMEGA_SI = 10*KAPPA_SI
 LAMBDA_SI = 0.1*KAPPA_SI
 
 #parameters to test
-# detuning_list = np.arange(-3*OMEGA_SI, 3*OMEGA_SI, KAPPA_SI/2)
-detuning_list = np.arange(21)
+detuning_list = np.arange(-1.1*OMEGA_SI, 1.1*OMEGA_SI, KAPPA_SI/2)
 
 number_of_params = len(detuning_list)
 answer = input(f"This code has {number_of_params} parameters. Do you still want to run it? (y/n)")
@@ -26,6 +25,7 @@ if answer.lower() == 'y':
 	semaphore = Semaphore(max_processes)
 	# list to store the processes
 	processes = []
+	start_times = []
 
 	process_id = 0
 	remaining_processes = len(detuning_list)
@@ -37,22 +37,32 @@ if answer.lower() == 'y':
 		# start the process and add it to the list of processes
 		process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		processes.append(process)
+		start_times.append(time())
 
 		while len(processes) == max_processes:
-			for p in processes:
+			for i in range(len(processes)):
+				p = processes[i]
 				if p.poll() is not None:
-					processes.remove(p)
+					return_code = p.poll()
+					stdout, stderr = process.communicate()
+					processes.remove(processes[i])
 					semaphore.release()  # release the permit to the semaphore
-					remaining_processes -= 1
-					print(f"Process finished. {remaining_processes} processes remaining.")
+					print(f"Process finished. {len(processes)} processes remaining.")
+					print(f"Process took {time()-start_times[i]}s to complete.")
+					if p.poll() !=0:
+						print(f"Std Err: {str(stderr)}")
+						input("Continue?")
+
 
 	# check if any of the processes have finished and remove them from the list
 	while len(processes) > 0:
 		for p in processes:
 			if p.poll() is not None:
+				stdout, stderr = process.communicate()
 				processes.remove(p)
 				semaphore.release()  # release the permit to the semaphore
 				print(f"Process finished. {len(processes)} processes remaining.")
+				print(f"Std Err: {str(stderr)}")
 
 
 else:
