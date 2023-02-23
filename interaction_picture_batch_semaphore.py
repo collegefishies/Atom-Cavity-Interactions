@@ -27,11 +27,11 @@ fname_root = f'{folder}/data'
 KAPPA_SI = 500E3/2/np.pi
 # ETA = 4
 # G_SI = 2*np.pi*ETA*np.sqrt(GAMMA_SI*KAPPA_SI)/4
-# OMEGA_SI = 10*KAPPA_SI
+OMEGA_SI = 10*KAPPA_SI
 # LAMBDA_SI = 0.1*KAPPA_SI
 
 #parameters to test
-detuning_list = np.arange(-3*KAPPA_SI, 3*KAPPA_SI, KAPPA_SI/5)
+detuning_list = np.arange(-3*KAPPA_SI, 3*KAPPA_SI, KAPPA_SI/5) - OMEGA_SI
 
 number_of_params = len(detuning_list)
 if not args.onlycompile:
@@ -72,7 +72,7 @@ if answer.lower() == 'y' and not args.onlycompile:
 					del start_times[i]
 					if p.poll() !=0:
 						print(f"Std Err: {stderr.decode('utf-8')}")
-						raise Exception("Subprocess returned error.")
+						# raise Exception("Subprocess returned error.")
 					break; #restart loop so it checks through all the processes again.
 
 	# check if any of the processes have finished and remove them from the list
