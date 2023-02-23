@@ -47,7 +47,8 @@ if answer.lower() == 'y':
 					stdout, stderr = process.communicate()
 					processes.remove(processes[i])
 					semaphore.release()  # release the permit to the semaphore
-					print(f"Process finished. {len(processes)} processes remaining.")
+					print(f"Process finished. {remaining_processes} processes remaining.")
+					remaining_processes -= 1
 					print(f"Process took {time()-start_times[i]}s to complete.")
 					if p.poll() !=0:
 						print(f"Std Err: {str(stderr)}")
