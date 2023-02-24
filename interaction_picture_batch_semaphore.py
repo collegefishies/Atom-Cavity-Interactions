@@ -31,7 +31,7 @@ OMEGA_SI = 10*KAPPA_SI
 # LAMBDA_SI = 0.1*KAPPA_SI
 
 #parameters to test
-detuning_list = np.arange(-3*KAPPA_SI, 3*KAPPA_SI, KAPPA_SI/5) - OMEGA_SI
+detuning_list = np.arange(-2.1*OMEGA_SI, +OMEGA_SI, KAPPA_SI/5)
 
 number_of_params = len(detuning_list)
 if not args.onlycompile:
