@@ -23,7 +23,7 @@ OMEGA_SI=10*KAPPA_SI
 LAMBDA_SI = 0.1*KAPPA_SI
 SCALE=KAPPA_SI
 
-def g(x,gamma,kappa):
+def gg(x,gamma,kappa):
 	return 2*np.pi*np.sqrt(4*x*gamma*kappa)
 parser.add_argument('-N', type=int, nargs='?', default=3, help='number of atoms in the system (default: 1)')
 parser.add_argument('-d', type=float, required=True, help='detuning parameter, in units of the cavity linewidth')
@@ -46,7 +46,7 @@ T           	= args.T
 gamma       	= args.gamma
 kappa       	= args.kappa
 eta         	= args.eta
-g           	= np.max(g(eta, gamma, kappa), args.g)
+g           	= np.max([gg(eta, gamma, kappa), args.g])
 omega       	= args.omega
 Lambda      	= args.driving_strength
 spin_command	= args.spin_state_command
@@ -54,7 +54,7 @@ scale       	= args.scale
 
 if not filename.endswith('.csv'):
 	filename = filename + '.csv'
-
+print("filename: ", filename)
 #Simulation Section
 #Simulation Section
 #Simulation Section
@@ -65,7 +65,7 @@ data = simulation(
 	Gamma_si=gamma,
 	kappa_si=kappa,
 	eta=eta,
-	g=g,
+	g_si=g,
 	omega_si=omega,
 	Lambda=Lambda,
 	scale=scale,
