@@ -44,7 +44,7 @@ args = parser.parse_args()
 max_processes = args.p
 N               	= args.N
 detuning_command	= args.d
-filename        	= args.o
+filepath        	= args.o
 T               	= args.T
 gamma           	= args.gamma
 kappa           	= args.kappa
@@ -54,7 +54,9 @@ omega           	= args.omega
 Lambda          	= args.driving_strength
 spin_command    	= args.spin_state_command
 scale           	= args.scale
-fname_root = f'{folder}/{filename}'
+
+fname_root = os.path.abspath(filepath)
+folder, filename = os.path.split(filepath)
 print("fname_root: ", fname_root)
 print("Received spin command: ", spin_command, " of type ", type(spin_command))
 #parameters to test
@@ -126,6 +128,8 @@ if answer.lower() == 'y' or args.onlycompile:
 	for fname in filenames:
 		if fname.endswith('.csv'):
 			filepath = os.path.join(folder, fname)
+			# if os.path.abspath(filepath) != os.path.abspath(fname_root + '.csv'):
+				# continue
 			df = pd.read_csv(filepath)
 			dataframes.append(df)
 			os.remove(filepath)
