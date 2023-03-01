@@ -24,7 +24,7 @@ def gg(x,gamma,kappa):
 parser = argparse.ArgumentParser(
 	description='Atom-Cavity System Simulation'
 )
-parser.add_argument('-p', type=int, nargs='?', default=10, help='number of atoms in the system (default: 1)')
+parser.add_argument('-p', type=int, nargs='?', default=1, help='number of atoms in the system (default: 1)')
 parser.add_argument('--onlycompile', action='store_true', help='a flag to only compile old csvs in cased simulation crashed earlier')
 parser.add_argument('-N', type=int, nargs='?', default=3, help='number of atoms in the system (default: 1)')
 parser.add_argument('-d', type=str, required=True, help='detuning parameter command, in scale units, will be evaluated in script')
