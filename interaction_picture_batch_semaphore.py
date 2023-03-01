@@ -27,7 +27,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-p', type=int, nargs='?', default=10, help='number of atoms in the system (default: 1)')
 parser.add_argument('--onlycompile', action='store_true', help='a flag to only compile old csvs in cased simulation crashed earlier')
 parser.add_argument('-N', type=int, nargs='?', default=3, help='number of atoms in the system (default: 1)')
-parser.add_argument('-d', type=str, required=True, help='detuning parameter command, in SI units, will be evaluated in script')
+parser.add_argument('-d', type=str, required=True, help='detuning parameter command, in scale units, will be evaluated in script')
 parser.add_argument('-o', type=str, required=True, help='output file name (.csv)')
 parser.add_argument('-T', type=float, nargs='?', default=60, help='simulation time in the scale units.')
 parser.add_argument('--gamma', type=float, nargs='?', default=GAMMA_SI, help='atomic spontaneous emission rate')
@@ -46,14 +46,14 @@ N               	= args.N
 detuning_command	= args.d
 filepath        	= args.o
 T               	= args.T
-gamma           	= args.gamma
-kappa           	= args.kappa
-eta             	= args.eta
-g               	= np.max([gg(eta, gamma, kappa), args.g])
-omega           	= args.omega
-Lambda          	= args.driving_strength
-spin_command    	= args.spin_state_command
 scale           	= args.scale
+gamma           	= args.gamma*scale
+kappa           	= args.kappa*scale
+eta             	= args.eta
+g               	= np.max([gg(eta, gamma, kappa), args.g*scale])
+omega           	= args.omega*scale
+Lambda          	= args.driving_strength*scale
+spin_command    	= args.spin_state_command
 
 fname_root = os.path.abspath(filepath)
 folder, filename = os.path.split(filepath)
@@ -61,7 +61,7 @@ print("fname_root: ", fname_root)
 print("Received spin command: ", spin_command, " of type ", type(spin_command))
 #parameters to test
 # detuning_list = np.arange(-2.1*OMEGA_SI, +OMEGA_SI, KAPPA_SI/5)
-detuning_list = eval(detuning_command)
+detuning_list = np.array(eval(detuning_command))*scale
 
 number_of_params = len(detuning_list)
 if not args.onlycompile:
