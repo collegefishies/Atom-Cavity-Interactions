@@ -169,6 +169,8 @@ def simulation(Natoms=3,detuning=0,
 
 	#save the calculated parameters
 	parameters_to_save['intracavity_photon_number'] = intracavity_photon_number
+	parameters_to_save['spin_state'] = str(spin_state)
+	parameters_to_save['spin_command'] = str(spin_command)
 
 	#adding the parameters to save
 	if SAVE_ARRAYS:
@@ -185,8 +187,6 @@ def simulation(Natoms=3,detuning=0,
 		parameters_to_save['sz*sx'] = str(szx)
 		parameters_to_save['sx*sy'] = str(sxy)
 		parameters_to_save['entropy'] = str(entropy)
-		parameters_to_save['spin_state'] = str(spin_state)
-		parameters_to_save['spin_command'] = str(spin_command)
 
 	return parameters_to_save
 
