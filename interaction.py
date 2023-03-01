@@ -42,6 +42,7 @@ def simulation(Natoms=3,detuning=0,
 	omega_si=OMEGA_SI,
 	Lambda=LAMBDA_SI, #this parameter is the SHO driving strength
 	scale=SCALE,
+	spin_command=None,
 	T=60):
 	#create the atom states
 	u = qutip.basis(3,0)
@@ -116,9 +117,12 @@ def simulation(Natoms=3,detuning=0,
 		return Ht
 
 	#define the initial state
-	# dd = qutip.tensor([(1/np.sqrt(2))*(u-d),]*Natoms); spin_state = 'x' #x state
-	dd = qutip.tensor([(1/np.sqrt(2))*(u-1j*d),]*Natoms); spin_state = 'y' #y state
-	# dd = qutip.tensor([(d),]*Natoms); spin_state='z' #z state
+	if spin_command == None:
+		# dd = qutip.tensor([(1/np.sqrt(2))*(u-d),]*Natoms); spin_state = 'x' #x state
+		dd = qutip.tensor([(1/np.sqrt(2))*(u-1j*d),]*Natoms); spin_state = 'y' #y state
+		# dd = qutip.tensor([(d),]*Natoms); spin_state='z' #z state
+	else:
+		dd = eval(spin_command)
 	psi0 = qutip.tensor(dd, zero)
 	rho0 = psi0*psi0.dag()
 	print(f"Spin State is initially {spin_state}")
@@ -179,6 +183,8 @@ def simulation(Natoms=3,detuning=0,
 		parameters_to_save['sz*sx'] = str(szx)
 		parameters_to_save['sx*sy'] = str(sxy)
 		parameters_to_save['entropy'] = str(entropy)
+		parameters_to_save['spin_state'] = str(spin_state)
+		parameters_to_save['spin_command'] = str(spin_command)
 
 	return parameters_to_save
 

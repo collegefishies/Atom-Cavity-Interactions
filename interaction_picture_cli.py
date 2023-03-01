@@ -39,17 +39,18 @@ parser.add_argument('--scale', type=float, nargs='?', default=SCALE, help='simul
 parser.add_argument('--spin_state_command', type=str, default=None, help='qutip command for defining the initial spin state, example command: "dd = qutip.tensor([(1/np.sqrt(2))*(u-1j*d),]*Natoms); spin_state = \'y\'"')
 args = parser.parse_args()
 
-N       	= args.N
-detuning	= args.d
-filename	= args.o
-T       	= args.T
-gamma   	= args.gamma
-kappa   	= args.kappa
-eta     	= args.eta
-g       	= np.max(g(eta, gamma, kappa), args.g)
-omega   	= args.omega
-Lambda  	= args.driving_strength
-scale   	= args.scale
+N           	= args.N
+detuning    	= args.d
+filename    	= args.o
+T           	= args.T
+gamma       	= args.gamma
+kappa       	= args.kappa
+eta         	= args.eta
+g           	= np.max(g(eta, gamma, kappa), args.g)
+omega       	= args.omega
+Lambda      	= args.driving_strength
+spin_command	= args.spin_state_command
+scale       	= args.scale
 
 if not filename.endswith('.csv'):
 	filename = filename + '.csv'
@@ -68,6 +69,7 @@ data = simulation(
 	omega_si=omega,
 	Lambda=Lambda,
 	scale=scale,
+	spin_command=spin_command,
 	T=T)
 # data = {"fake data": np.random.random(), "intracavity_photon_number": np.nan, "detuning": detuning}
 intracavity_photon_number = data['intracavity_photon_number']
