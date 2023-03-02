@@ -43,7 +43,8 @@ def simulation(Natoms=3,detuning=0,
 	Lambda=LAMBDA_SI, #this parameter is the SHO driving strength
 	scale=SCALE,
 	spin_command='',
-	T=60):
+	T=60,
+	SAVE_ARRAYS=SAVE_ARRAYS):
 	#create the atom states
 	u = qutip.basis(3,0)
 	d = qutip.basis(3,1)

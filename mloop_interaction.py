@@ -3,7 +3,7 @@ import mloop.controllers as mlc
 import mloop.visualizations as mlv
 import numpy as np
 import time
-
+from interaction import simulation
 class ExampleInterface(mli.Interface):
 	#initialization of the interface, including this method is optional
 	def __init__(self):
@@ -25,7 +25,7 @@ class ExampleInterface(mli.Interface):
 		x = params[0]
 		y = params[1]
 
-		cost = -np.sin(np.pi*x)*np.sin(np.pi*y) - 10*np.exp((-(x-0.7)**2 -(y-0.7)**2)/0.01)
+		cost = -np.sin(np.pi*x)*np.sin(np.pi*y) - 10*np.exp((-(x-0.7)**2 -(y-0.7)**2)/0.0001)
 		#there is no uncertainty in our result
 		uncer=0
 		#the evaluation will always be a success
@@ -38,6 +38,14 @@ class ExampleInterface(mli.Interface):
 		cost_dict = {'cost': cost, 'uncer': uncer, 'bad': bad}
 		return cost_dict
 
+class SimulationInterface(mli.Interface):
+	def __init__(self):
+		super(SimulationInterface, self).__init__()
+
+	def get_next_cost_dict(self, params_dict):
+		params = params_dict['params']
+
+
 def sample_main():
 	#M-LOOP can be run with three commands
 
@@ -45,11 +53,14 @@ def sample_main():
 	interface = ExampleInterface()
 	#next create the controller, provide it with your interface
 	#and any options you want to set
+
+	params = {
+		'omega': []
+	}
 	controller = mlc.create_controller(
 			interface,
 			controller_type='neural_net',
 			max_num_runs=1000,
-			target_cost = -12,
 			num_params = 2,
 			min_boundary = [0,0],
 			max_boundary = [1,1]
