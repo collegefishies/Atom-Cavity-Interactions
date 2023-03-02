@@ -34,6 +34,79 @@ def pretty_print_dict(dictionary):
 	for key, value in dictionary.items():
 		print(f"{key}: {value}")
 
+def rotated_variance(sx, sy, sz, sxy, syz, szx, sxx, syy, szz, axis, angle):
+    """Calculates the rotated moments over time of a spin-1/2 system from its expectation values of spin operators.
+    
+    Args:
+        sx (ndarray): Array of expectation values of sigma_x.
+        sy (ndarray): Array of expectation values of sigma_y.
+        sz (ndarray): Array of expectation values of sigma_z.
+        sxx (float): Expectation value of sigma_x^2.
+        syy (float): Expectation value of sigma_y^2.
+        szz (float): Expectation value of sigma_z^2.
+        axis (ndarray): String defining the rotation axis 'x', 'y', 'z'.
+        angle (float): Angle of rotation in radians.
+        
+    Returns:
+        float: The rotated variance.
+    """
+    
+    if axis == 'x' or axis == 'X':
+        s0  = sy
+        s1  = sz
+        s01 = sxy
+        s00 = syy
+        s11 = szz
+    elif axis == 'y' or axis == 'Y':
+        s0  = sz
+        s1  = sx
+        s01 = szx
+        s00 = szz
+        s11 = sxx
+    elif axis == 'z' or axis == 'Z':
+        s0  = sx
+        s1  = sy
+        s01 = sxy
+        s00 = sxx
+        s11 = syy
+    else:
+        raise ValueError("Invalid rotation axis. Must be 'x', 'y', or 'z'.")
+        
+    
+    #calculate the rotation moments sa, saa, sb, sbb. For 'x', sa = s0, sb = s1 at no rotation
+    #sa = s0*cos(angle) + s1*sin(angle)
+    #saa = s00*cos(angle)^2 + s11*sin(angle)^2 + (s01+s10)*cos(angle)*sin(angle).
+    
+    c = np.cos(angle)
+    s = np.sin(angle)
+    
+    sa = s0 * c + s1 * s
+    sb = -s0 * s + s1 * c
+    
+    saa = s00 * c ** 2 + s11 * s ** 2 +  s01 * c * s
+    sbb = s00 * s ** 2 + s11 * c ** 2 -  s01 * c * s
+    
+    #return the variances over time
+    return (saa - sa**2, sbb - sb**2)
+     
+def max_min_variance(sx, sy, sz, sxy, syz, szx, sxx, syy, szz, axis):
+    variances = []
+    for angle in np.linspace(0,2*np.pi, 180):
+        x,y = rotated_variance(sx, sy, sz, sxy, syz, szx, sxx, syy, szz, axis, angle)
+        
+        variances.append(x)
+        
+    #convert this to a numpy array
+    variances = np.array(variances)
+
+
+    #and take max over the new dimension
+    max_variance_over_time = np.max(variances, axis=0)
+    min_variance_over_time = np.min(variances, axis=0)
+        
+        
+    return max_variance_over_time, min_variance_over_time
+
 def simulation(Natoms=3,detuning=0,
 	Gamma_si=GAMMA_SI, 
 	kappa_si=KAPPA_SI,
@@ -163,6 +236,15 @@ def simulation(Natoms=3,detuning=0,
 	sx, sy, sz, sxx, syy, szz, norm, photons, syz, szx, sxy = e_vals
 	entropy = [qutip.entropy_vn(states[i]) for i in range(len(states))]
 
+	#calculate the min max var
+	axis = 'Y'
+	s_maxmax, s_minmin  = max_min_variance(sx, sy, sz, sxy, syz, szx, sxx, syy, szz, axis)
+	Q = np.sqrt(s_maxmax/s_minmin)
+	contrast = np.sqrt(sx**2+sy**2 + sz**2)
+	area = np.sqrt(s_maxmax*s_minmin)
+	wineland_parameter = Q**2/(contrast**2 * area)
+	max_wineland_time = t[np.argmax(wineland_parameter)]
+
 	#save the calculated single scalar parameters
 	#calculate the average photon number after 3*kappa
 	steady_state_photons = photons[t > 3*kappa]
@@ -172,6 +254,8 @@ def simulation(Natoms=3,detuning=0,
 	parameters_to_save['intracavity_photon_number'] = intracavity_photon_number
 	parameters_to_save['spin_state'] = str(spin_state)
 	parameters_to_save['spin_command'] = str(spin_command)
+	parameters_to_save['max_wineland_parameter'] = np.max(wineland_parameter)
+	parameters_to_save['max_wineland_time'] = max_wineland_time
 
 	#adding the parameters to save
 	if SAVE_ARRAYS:
