@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser(
 #initial parameters
 GAMMA_SI = 180e3/2/np.pi
 KAPPA_SI = 500E3/2/np.pi
-ETA = 20
+ETA = 4
 G_SI = 2*np.pi*np.sqrt(4*ETA*GAMMA_SI*KAPPA_SI)
 # OMEGA_SI = 2*np.pi*5e6
 OMEGA_SI=10*KAPPA_SI

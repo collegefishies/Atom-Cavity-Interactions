@@ -4,6 +4,21 @@ import mloop.visualizations as mlv
 import numpy as np
 import time
 from interaction import simulation
+import logging
+
+l = logging
+
+#initial parameters
+GAMMA_SI = 180e3/2/np.pi
+KAPPA_SI = 500E3/2/np.pi
+ETA = 4
+G_SI = 2*np.pi*np.sqrt(4*ETA*GAMMA_SI*KAPPA_SI)
+# OMEGA_SI = 2*np.pi*5e6
+OMEGA_SI=10*KAPPA_SI
+LAMBDA_SI = 0.1*KAPPA_SI
+SCALE=KAPPA_SI
+
+
 class ExampleInterface(mli.Interface):
 	#initialization of the interface, including this method is optional
 	def __init__(self):
@@ -45,6 +60,41 @@ class SimulationInterface(mli.Interface):
 	def get_next_cost_dict(self, params_dict):
 		params = params_dict['params']
 
+		#scale em up, cus the function will descale em later.
+		omega = params[0]*SCALE
+		detuning = params[1]*SCALE
+		logging.info("Omega: ", omega)
+		logging.info("Detuning: ", detuning)
+
+		try:
+			results = simulation(
+				Natoms=3,
+				detuning=detuning,
+				Gamma_si=GAMMA_SI, 
+				kappa_si=KAPPA_SI,
+				eta=ETA, 
+				g_si=G_SI,
+				omega_si=omega,
+				Lambda=LAMBDA_SI, #this parameter is the SHO driving strength
+				scale=SCALE,
+				spin_command='',
+				T=60,
+				SAVE_ARRAYS=True)
+
+			logging.info("Max Wineland Parameter: ", results['max_wineland_parameter'])
+			logging.info("Max Wineland Time: ", results['max_wineland_time'])
+			cost = -results['max_wineland_parameter']
+			uncer = 0
+			bad = False
+		except:
+			cost = np.nan
+			uncer = 0
+			bad = False
+
+		cost_dict = {'cost': cost, 'uncer': uncer, 'bad': bad}
+		return cost_dict
+
+
 
 def sample_main():
 	#M-LOOP can be run with three commands
@@ -54,9 +104,6 @@ def sample_main():
 	#next create the controller, provide it with your interface
 	#and any options you want to set
 
-	params = {
-		'omega': []
-	}
 	controller = mlc.create_controller(
 			interface,
 			controller_type='neural_net',
@@ -73,5 +120,35 @@ def sample_main():
 	print("Best parameters found: ")
 	print(controller.best_params)
 
+def main():
+	#M-LOOP	can be run with three commands
+	logging.basicConfig(filename='mloop_sim.log', level=logging.DEBUG)
+	#first create your interface
+	interface = SimulationInterface()
+	#next create the controller, provide it with your interface
+	#and any options you want to set
+
+	params = {
+		'omega': [0,10],
+		'detuning': [-12, 0]
+	}
+
+	l.info("Param range: ", params)
+	controller = mlc.create_controller(
+			interface,
+			controller_type='neural_net',
+			max_num_runs=1000,
+			num_params = 2,
+			min_boundary = [0,-12],
+			max_boundary = [10,0]
+		)
+
+	#to run m-loop and find the optimal parameters just use the controller method optimize
+	controller.optimize()
+
+	#the results of the optimization will be saved to files and can also be accessed as attributes of the controller
+	print("Best parameters found: ")
+	print(controller.best_params)
 if __name__ == "__main__":
-	sample_main()
+	# sample_main()
+	main()

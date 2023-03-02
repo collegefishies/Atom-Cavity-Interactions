@@ -9,7 +9,6 @@ GAMMA_SI = 180e3/2/np.pi
 KAPPA_SI = 500E3/2/np.pi
 ETA = 20
 G_SI = 2*np.pi*np.sqrt(4*ETA*GAMMA_SI*KAPPA_SI)
-# OMEGA_SI = 2*np.pi*5e6
 OMEGA_SI=10*KAPPA_SI
 LAMBDA_SI = 0.1*KAPPA_SI
 SCALE=KAPPA_SI
@@ -257,6 +256,8 @@ def simulation(Natoms=3,detuning=0,
 	parameters_to_save['max_wineland_parameter'] = np.max(wineland_parameter)
 	parameters_to_save['max_wineland_time'] = max_wineland_time
 
+	print("Max Wineland Parameter: ", parameters_to_save['max_wineland_parameter'])
+	print("Max Wineland Time: ", parameters_to_save['max_wineland_time'])
 	#adding the parameters to save
 	if SAVE_ARRAYS:
 		parameters_to_save['t'] = str(t)
