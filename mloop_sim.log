@@ -1,0 +1,575 @@
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+DEBUG:mloop.learners.2:Learner init completed.
+INFO:mloop.controllers:Optimization started.
+DEBUG:mloop.interfaces:Entering main loop of interface.
+DEBUG:mloop.controllers:ML learner started.
+DEBUG:mloop.controllers:Starting training optimization.
+INFO:mloop.controllers:Run:1 (training)
+INFO:mloop.controllers:params [ 3.41632742 -6.08928108]
+INFO:mloop.controllers:cost -0.6246188539676009 +/- 0.0
+INFO:mloop.controllers:Run:2 (training)
+INFO:mloop.controllers:params [ 4.99222939 -1.08327062]
+INFO:mloop.controllers:cost -0.5997953492362266 +/- 0.0
+INFO:mloop.controllers:Run:3 (training)
+INFO:mloop.controllers:params [ 2.0063546  -7.62151778]
+INFO:mloop.controllers:cost -0.6416604403516888 +/- 0.0
+INFO:mloop.controllers:Run:4 (training)
+INFO:mloop.controllers:params [ 1.10815999 -4.0735319 ]
+INFO:mloop.controllers:cost -0.6199849676256045 +/- 0.0
+INFO:mloop.controllers:Run:5 (training)
+INFO:mloop.controllers:params [ 0.61212404 -1.73658269]
+INFO:mloop.controllers:cost -0.7374243402569145 +/- 0.0
+INFO:mloop.controllers:Run:6 (training)
+INFO:mloop.controllers:params [  9.94534785 -10.08358282]
+INFO:mloop.controllers:cost -0.7619559951927908 +/- 0.0
+INFO:mloop.controllers:Run:7 (training)
+INFO:mloop.controllers:params [ 2.42879466 -3.07222273]
+INFO:mloop.controllers:cost -0.7518396357963465 +/- 0.0
+INFO:mloop.controllers:Run:8 (training)
+INFO:mloop.controllers:params [ 5.63722863 -8.46249863]
+INFO:mloop.controllers:cost -0.6057863885001653 +/- 0.0
+INFO:mloop.controllers:Run:9 (training)
+INFO:mloop.controllers:params [  1.14801257 -11.49345136]
+INFO:mloop.controllers:cost -0.6506179108923854 +/- 0.0
+INFO:mloop.controllers:Run:10 (training)
+INFO:mloop.controllers:params [ 3.5808358  -5.54040792]
+INFO:mloop.controllers:cost -0.6328825249063369 +/- 0.0
+INFO:mloop.controllers:Run:11 (training)
+INFO:mloop.controllers:params [ 9.99357951 -0.74317914]
+DEBUG:mloop.controllers:Starting ML optimization.
+INFO:mloop.controllers:cost -0.6160700903239544 +/- 0.0
+DEBUG:mloop.controllers:End training runs.
+INFO:mloop.controllers:Run:12 (trainer)
+INFO:mloop.controllers:params [ 6.45338866 -5.29883165]
+INFO:mloop.controllers:cost -0.5980918284628872 +/- 0.0
+INFO:mloop.controllers:Run:13 (machine learner)
+INFO:mloop.controllers:params [ 2.07993724 -1.28493834]
+INFO:mloop.controllers:cost -0.7053191443882358 +/- 0.0
+INFO:mloop.controllers:Run:14 (machine learner)
+INFO:mloop.controllers:params [ 10. -12.]
+INFO:mloop.controllers:cost -0.616139812621763 +/- 0.0
+INFO:mloop.controllers:Run:15 (machine learner)
+INFO:mloop.controllers:params [1.02253592 0.        ]
+INFO:mloop.controllers:cost -0.7136481147785797 +/- 0.0
+INFO:mloop.controllers:Run:16 (trainer)
+INFO:mloop.controllers:params [ 9.90063128 -0.93373894]
+INFO:mloop.controllers:cost -0.6275701586748265 +/- 0.0
+INFO:mloop.controllers:Run:17 (machine learner)
+INFO:mloop.controllers:params [10.        -8.8611996]
+INFO:mloop.controllers:cost -0.6428810934101141 +/- 0.0
+INFO:mloop.controllers:Run:18 (machine learner)
+INFO:mloop.controllers:params [10.         -8.35429492]
+INFO:mloop.controllers:cost -0.6294891359643963 +/- 0.0
+INFO:mloop.controllers:Run:19 (machine learner)
+INFO:mloop.controllers:params [10.         -9.55793547]
+INFO:mloop.controllers:cost -0.7059074080192519 +/- 0.0
+INFO:mloop.controllers:Run:20 (trainer)
+INFO:mloop.controllers:params [ 7.90724061 -4.68012391]
+INFO:mloop.controllers:cost -0.5953368377378018 +/- 0.0
+INFO:mloop.controllers:Run:21 (machine learner)
+INFO:mloop.controllers:params [ 2.47048429 -2.92189387]
+INFO:mloop.controllers:cost -0.7860921601021889 +/- 0.0
+INFO:mloop.controllers:Run:22 (machine learner)
+INFO:mloop.controllers:params [ 10.         -10.39021339]
+INFO:mloop.controllers:cost -0.7148947662208476 +/- 0.0
+INFO:mloop.controllers:Run:23 (machine learner)
+INFO:mloop.controllers:params [ 10.         -10.34155385]
+INFO:mloop.controllers:cost -0.7246119718323506 +/- 0.0
+INFO:mloop.controllers:Run:24 (trainer)
+INFO:mloop.controllers:params [ 7.64820023 -1.90100116]
+INFO:mloop.controllers:cost -0.6037820921967262 +/- 0.0
+INFO:mloop.controllers:Run:25 (machine learner)
+INFO:mloop.controllers:params [ 2.73565446 -2.96852594]
+INFO:mloop.controllers:cost -0.8180784814488806 +/- 0.0
+INFO:mloop.controllers:Run:26 (machine learner)
+INFO:mloop.controllers:params [ 2.40424765 -2.77594526]
+INFO:mloop.controllers:cost -0.8015500028179364 +/- 0.0
+INFO:mloop.controllers:Run:27 (machine learner)
+INFO:mloop.controllers:params [ 2.58434071 -2.69030883]
+INFO:mloop.controllers:cost -0.8302428872420887 +/- 0.0
+INFO:mloop.controllers:Run:28 (trainer)
+INFO:mloop.controllers:params [ 1.22229833 -0.75522132]
+INFO:mloop.controllers:cost -0.7700934450787631 +/- 0.0
+INFO:mloop.controllers:Run:29 (machine learner)
+INFO:mloop.controllers:params [ 3.40684569 -2.95360663]
+INFO:mloop.controllers:cost -0.7479703704926596 +/- 0.0
+INFO:mloop.controllers:Run:30 (machine learner)
+INFO:mloop.controllers:params [ 3.34487626 -2.72677372]
+INFO:mloop.controllers:cost -0.72761521893219 +/- 0.0
+INFO:mloop.controllers:Run:31 (machine learner)
+INFO:mloop.controllers:params [ 2.86727964 -2.63097363]
+INFO:mloop.controllers:cost -0.7930499547626131 +/- 0.0
+INFO:mloop.controllers:Run:32 (trainer)
+INFO:mloop.controllers:params [ 6.25815283 -9.31426533]
+INFO:mloop.controllers:cost -0.6153333273580357 +/- 0.0
+INFO:mloop.controllers:Run:33 (machine learner)
+INFO:mloop.controllers:params [ 2.03557232 -2.1546008 ]
+INFO:mloop.controllers:cost -0.8358185261535946 +/- 0.0
+INFO:mloop.controllers:Run:34 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.61347914]
+INFO:mloop.controllers:cost -0.8589383888036585 +/- 0.0
+INFO:mloop.controllers:Run:35 (machine learner)
+INFO:mloop.controllers:params [ 2.62991181 -2.67355665]
+INFO:mloop.controllers:cost -0.8209266502430601 +/- 0.0
+INFO:mloop.controllers:Run:36 (trainer)
+INFO:mloop.controllers:params [ 2.70754969 -1.91983546]
+INFO:mloop.controllers:cost -0.695441225528845 +/- 0.0
+INFO:mloop.controllers:Run:37 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.26638769]
+INFO:mloop.controllers:cost -0.8763831615102893 +/- 0.0
+INFO:mloop.controllers:Run:38 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.25792492]
+INFO:mloop.controllers:cost -0.8763022753050617 +/- 0.0
+INFO:mloop.controllers:Run:39 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.47890633]
+INFO:mloop.controllers:cost -0.8708092419343165 +/- 0.0
+INFO:mloop.controllers:Run:40 (trainer)
+INFO:mloop.controllers:params [  3.53646284 -10.62200332]
+INFO:mloop.controllers:cost -0.8193652087048096 +/- 0.0
+INFO:mloop.controllers:Run:41 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30988762]
+INFO:mloop.controllers:cost -0.8765440111667662 +/- 0.0
+INFO:mloop.controllers:Run:42 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.2726776]
+INFO:mloop.controllers:cost -0.8764455439360911 +/- 0.0
+INFO:mloop.controllers:Run:43 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29737951]
+INFO:mloop.controllers:cost -0.8765529238116403 +/- 0.0
+INFO:mloop.controllers:Run:44 (trainer)
+INFO:mloop.controllers:params [ 5.3220827  -1.01769999]
+INFO:mloop.controllers:cost -0.601185307478683 +/- 0.0
+INFO:mloop.controllers:Run:45 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.28400019]
+INFO:mloop.controllers:cost -0.8765038425095207 +/- 0.0
+INFO:mloop.controllers:Run:46 (machine learner)
+INFO:mloop.controllers:params [  4.43282253 -12.        ]
+INFO:mloop.controllers:cost -0.6198356630890615 +/- 0.0
+INFO:mloop.controllers:Run:47 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.3073424]
+INFO:mloop.controllers:cost -0.8765476134194001 +/- 0.0
+INFO:mloop.controllers:Run:48 (trainer)
+INFO:mloop.controllers:params [ 7.48445483 -5.05306602]
+INFO:mloop.controllers:cost -0.59705343619986 +/- 0.0
+INFO:mloop.controllers:Run:49 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29435237]
+INFO:mloop.controllers:cost -0.8765525722009924 +/- 0.0
+INFO:mloop.controllers:Run:50 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29704003]
+INFO:mloop.controllers:cost -0.8765535258039701 +/- 0.0
+INFO:mloop.controllers:Run:51 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.3167242]
+INFO:mloop.controllers:cost -0.8765142430547009 +/- 0.0
+INFO:mloop.controllers:Run:52 (trainer)
+INFO:mloop.controllers:params [ 3.05550751 -7.09618871]
+INFO:mloop.controllers:cost -0.624475410602958 +/- 0.0
+INFO:mloop.controllers:Run:53 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30053186]
+INFO:mloop.controllers:cost -0.8765432462555802 +/- 0.0
+INFO:mloop.controllers:Run:54 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.27331131]
+INFO:mloop.controllers:cost -0.8764504490783721 +/- 0.0
+INFO:mloop.controllers:Run:55 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.31515127]
+INFO:mloop.controllers:cost -0.876523469320777 +/- 0.0
+INFO:mloop.controllers:Run:56 (trainer)
+INFO:mloop.controllers:params [ 4.12202065 -4.99624906]
+INFO:mloop.controllers:cost -0.667510280416156 +/- 0.0
+INFO:mloop.controllers:Run:57 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30254532]
+INFO:mloop.controllers:cost -0.8765366341170528 +/- 0.0
+INFO:mloop.controllers:Run:58 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29769864]
+INFO:mloop.controllers:cost -0.8765524328233146 +/- 0.0
+INFO:mloop.controllers:Run:59 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30132307]
+INFO:mloop.controllers:cost -0.8765393749279721 +/- 0.0
+INFO:mloop.controllers:Run:60 (trainer)
+INFO:mloop.controllers:params [ 5.44418555 -9.00147785]
+INFO:mloop.controllers:cost -0.5948226120241398 +/- 0.0
+INFO:mloop.controllers:Run:61 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.28770103]
+INFO:mloop.controllers:cost -0.8765320451686816 +/- 0.0
+INFO:mloop.controllers:Run:62 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30568671]
+INFO:mloop.controllers:cost -0.8765465912759298 +/- 0.0
+INFO:mloop.controllers:Run:63 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30934911]
+INFO:mloop.controllers:cost -0.8765453833792821 +/- 0.0
+INFO:mloop.controllers:Run:64 (trainer)
+INFO:mloop.controllers:params [  9.53173371 -11.26773766]
+INFO:mloop.controllers:cost -0.6125124786518275 +/- 0.0
+INFO:mloop.controllers:Run:65 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29789788]
+INFO:mloop.controllers:cost -0.8765520694177694 +/- 0.0
+INFO:mloop.controllers:Run:66 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.3096603]
+INFO:mloop.controllers:cost -0.8765445299312847 +/- 0.0
+INFO:mloop.controllers:Run:67 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.33234485]
+INFO:mloop.controllers:cost -0.8763931706564888 +/- 0.0
+INFO:mloop.controllers:Run:68 (trainer)
+INFO:mloop.controllers:params [ 3.12793217 -9.30482828]
+INFO:mloop.controllers:cost -0.7656953045952839 +/- 0.0
+INFO:mloop.controllers:Run:69 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29417314]
+INFO:mloop.controllers:cost -0.8765522910467342 +/- 0.0
+INFO:mloop.controllers:Run:70 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.28705118]
+INFO:mloop.controllers:cost -0.876527849535934 +/- 0.0
+INFO:mloop.controllers:Run:71 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.28919073]
+INFO:mloop.controllers:cost -0.8765389576690347 +/- 0.0
+INFO:mloop.controllers:Run:72 (trainer)
+INFO:mloop.controllers:params [ 1.46041488 -5.86240403]
+INFO:mloop.controllers:cost -0.6089704808562068 +/- 0.0
+INFO:mloop.controllers:Run:73 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.3070262]
+INFO:mloop.controllers:cost -0.8765475705689613 +/- 0.0
+INFO:mloop.controllers:Run:74 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30007606]
+INFO:mloop.controllers:cost -0.8765453011702726 +/- 0.0
+INFO:mloop.controllers:Run:75 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.28505212]
+INFO:mloop.controllers:cost -0.876513022466638 +/- 0.0
+INFO:mloop.controllers:Run:76 (trainer)
+INFO:mloop.controllers:params [  9.64694131 -10.96002027]
+INFO:mloop.controllers:cost -0.6236117955421513 +/- 0.0
+INFO:mloop.controllers:Run:77 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29284937]
+INFO:mloop.controllers:cost -0.8765491267080019 +/- 0.0
+INFO:mloop.controllers:Run:78 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.3106056]
+INFO:mloop.controllers:cost -0.87654169044343 +/- 0.0
+INFO:mloop.controllers:Run:79 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.28355342]
+INFO:mloop.controllers:cost -0.8764991662614412 +/- 0.0
+INFO:mloop.controllers:Run:80 (trainer)
+INFO:mloop.controllers:params [ 3.81232619 -6.90619823]
+INFO:mloop.controllers:cost -0.6597876095172795 +/- 0.0
+INFO:mloop.controllers:Run:81 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30513837]
+INFO:mloop.controllers:cost -0.8765457591682176 +/- 0.0
+INFO:mloop.controllers:Run:82 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.32070426]
+INFO:mloop.controllers:cost -0.8764788475479276 +/- 0.0
+INFO:mloop.controllers:Run:83 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29044024]
+INFO:mloop.controllers:cost -0.8765433009833669 +/- 0.0
+INFO:mloop.controllers:Run:84 (trainer)
+INFO:mloop.controllers:params [ 5.97007366 -8.6102567 ]
+INFO:mloop.controllers:cost -0.6291858772581789 +/- 0.0
+INFO:mloop.controllers:Run:85 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.31180673]
+INFO:mloop.controllers:cost -0.876536523859568 +/- 0.0
+INFO:mloop.controllers:Run:86 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.24913495]
+INFO:mloop.controllers:cost -0.8761884870130653 +/- 0.0
+INFO:mloop.controllers:Run:87 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30252375]
+INFO:mloop.controllers:cost -0.8765365309495445 +/- 0.0
+INFO:mloop.controllers:Run:88 (trainer)
+INFO:mloop.controllers:params [ 5.70881517 -9.00709927]
+INFO:mloop.controllers:cost -0.6023927163952376 +/- 0.0
+INFO:mloop.controllers:Run:89 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.32140954]
+INFO:mloop.controllers:cost -0.8764712084878116 +/- 0.0
+INFO:mloop.controllers:Run:90 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30081127]
+INFO:mloop.controllers:cost -0.8765419111590533 +/- 0.0
+INFO:mloop.controllers:Run:91 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.26047884]
+INFO:mloop.controllers:cost -0.8763247626643229 +/- 0.0
+INFO:mloop.controllers:Run:92 (trainer)
+INFO:mloop.controllers:params [ 5.07887847 -1.08327062]
+INFO:mloop.controllers:cost -0.6001208612195444 +/- 0.0
+INFO:mloop.controllers:Run:93 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30815636]
+INFO:mloop.controllers:cost -0.8765473981354545 +/- 0.0
+INFO:mloop.controllers:Run:94 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30846694]
+INFO:mloop.controllers:cost -0.8765470896526723 +/- 0.0
+INFO:mloop.controllers:Run:95 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.26734248]
+INFO:mloop.controllers:cost -0.8763953276148113 +/- 0.0
+INFO:mloop.controllers:Run:96 (trainer)
+INFO:mloop.controllers:params [ 8.42644886 -6.34991818]
+INFO:mloop.controllers:cost -0.5976564897990854 +/- 0.0
+INFO:mloop.controllers:Run:97 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29346886]
+INFO:mloop.controllers:cost -0.8765508974666093 +/- 0.0
+INFO:mloop.controllers:Run:98 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.31758677]
+INFO:mloop.controllers:cost -0.8765078863522876 +/- 0.0
+INFO:mloop.controllers:Run:99 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.23989425]
+INFO:mloop.controllers:cost -0.8760602510968191 +/- 0.0
+INFO:mloop.controllers:Run:100 (trainer)
+INFO:mloop.controllers:params [ 6.20426511 -9.65817205]
+INFO:mloop.controllers:cost -0.6324971508206148 +/- 0.0
+INFO:mloop.controllers:Run:101 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.24725893]
+INFO:mloop.controllers:cost -0.8761555499471848 +/- 0.0
+INFO:mloop.controllers:Run:102 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30784732]
+INFO:mloop.controllers:cost -0.8765476418539567 +/- 0.0
+INFO:mloop.controllers:Run:103 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.33939399]
+INFO:mloop.controllers:cost -0.8763062969505285 +/- 0.0
+INFO:mloop.controllers:Run:104 (trainer)
+INFO:mloop.controllers:params [ 0.52787124 -1.73658269]
+INFO:mloop.controllers:cost -0.693664264496665 +/- 0.0
+INFO:mloop.controllers:Run:105 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.31766958]
+INFO:mloop.controllers:cost -0.8765072051108902 +/- 0.0
+INFO:mloop.controllers:Run:106 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.31190218]
+INFO:mloop.controllers:cost -0.8765360744909149 +/- 0.0
+INFO:mloop.controllers:Run:107 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.25214697]
+INFO:mloop.controllers:cost -0.8762331757914813 +/- 0.0
+INFO:mloop.controllers:Run:108 (trainer)
+INFO:mloop.controllers:params [  7.14496342 -10.08358282]
+INFO:mloop.controllers:cost -0.5944733901253392 +/- 0.0
+INFO:mloop.controllers:Run:109 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29759346]
+INFO:mloop.controllers:cost -0.8765525774832517 +/- 0.0
+INFO:mloop.controllers:Run:110 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.34364944]
+INFO:mloop.controllers:cost -0.8762321734130337 +/- 0.0
+INFO:mloop.controllers:Run:111 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.32393392]
+INFO:mloop.controllers:cost -0.8764530245506555 +/- 0.0
+INFO:mloop.controllers:Run:112 (trainer)
+INFO:mloop.controllers:params [ 4.70117439 -4.89394022]
+INFO:mloop.controllers:cost -0.791572689493381 +/- 0.0
+INFO:mloop.controllers:Run:113 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.32498069]
+INFO:mloop.controllers:cost -0.8764491978978209 +/- 0.0
+INFO:mloop.controllers:Run:114 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.36484431]
+INFO:mloop.controllers:cost -0.8758496497044449 +/- 0.0
+INFO:mloop.controllers:Run:115 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.32639622]
+INFO:mloop.controllers:cost -0.876442910301962 +/- 0.0
+INFO:mloop.controllers:Run:116 (trainer)
+INFO:mloop.controllers:params [ 0.64733561 -7.43327218]
+INFO:mloop.controllers:cost -0.6136924934932336 +/- 0.0
+INFO:mloop.controllers:Run:117 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30108453]
+INFO:mloop.controllers:cost -0.8765405558902477 +/- 0.0
+INFO:mloop.controllers:Run:118 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.36988131]
+INFO:mloop.controllers:cost -0.8757349414465831 +/- 0.0
+INFO:mloop.controllers:Run:119 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.25534624]
+INFO:mloop.controllers:cost -0.8762729435840241 +/- 0.0
+INFO:mloop.controllers:Run:120 (trainer)
+INFO:mloop.controllers:params [ 4.06952835 -1.99704287]
+INFO:mloop.controllers:cost -0.6335549586824778 +/- 0.0
+INFO:mloop.controllers:Run:121 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29757639]
+INFO:mloop.controllers:cost -0.8765526419416514 +/- 0.0
+INFO:mloop.controllers:Run:122 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.31216122]
+INFO:mloop.controllers:cost -0.876534820689164 +/- 0.0
+INFO:mloop.controllers:Run:123 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.22024904]
+INFO:mloop.controllers:cost -0.8757257149841349 +/- 0.0
+INFO:mloop.controllers:Run:124 (trainer)
+INFO:mloop.controllers:params [ 3.5808358  -2.14033107]
+INFO:mloop.controllers:cost -0.6512682052352015 +/- 0.0
+INFO:mloop.controllers:Run:125 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.33084801]
+INFO:mloop.controllers:cost -0.8764091080285957 +/- 0.0
+INFO:mloop.controllers:Run:126 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.24330294]
+INFO:mloop.controllers:cost -0.876101724516019 +/- 0.0
+INFO:mloop.controllers:Run:127 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.23589165]
+INFO:mloop.controllers:cost -0.8759979627240739 +/- 0.0
+INFO:mloop.controllers:Run:128 (trainer)
+INFO:mloop.controllers:params [ 5.31770319 -6.66600036]
+INFO:mloop.controllers:cost -0.646000588431971 +/- 0.0
+INFO:mloop.controllers:Run:129 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.27312274]
+INFO:mloop.controllers:cost -0.8764485392920903 +/- 0.0
+INFO:mloop.controllers:Run:130 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.22300543]
+INFO:mloop.controllers:cost -0.8757756463965035 +/- 0.0
+INFO:mloop.controllers:Run:131 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.16941973]
+INFO:mloop.controllers:cost -0.8746378873601959 +/- 0.0
+INFO:mloop.controllers:Run:132 (trainer)
+INFO:mloop.controllers:params [ 6.45338866 -9.8346347 ]
+INFO:mloop.controllers:cost -0.60909474909953 +/- 0.0
+INFO:mloop.controllers:Run:133 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30226808]
+INFO:mloop.controllers:cost -0.8765353787464764 +/- 0.0
+INFO:mloop.controllers:Run:134 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.34907719]
+INFO:mloop.controllers:cost -0.8761637186218599 +/- 0.0
+INFO:mloop.controllers:Run:135 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.24652086]
+INFO:mloop.controllers:cost -0.8761416166882666 +/- 0.0
+INFO:mloop.controllers:Run:136 (trainer)
+INFO:mloop.controllers:params [ 5.02620564 -0.93373894]
+INFO:mloop.controllers:cost -0.5992775457872552 +/- 0.0
+INFO:mloop.controllers:Run:137 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.27452245]
+INFO:mloop.controllers:cost -0.8764605760399593 +/- 0.0
+INFO:mloop.controllers:Run:138 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.34282899]
+INFO:mloop.controllers:cost -0.8762479020252776 +/- 0.0
+INFO:mloop.controllers:Run:139 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.34883128]
+INFO:mloop.controllers:cost -0.8761670360644318 +/- 0.0
+INFO:mloop.controllers:Run:140 (trainer)
+INFO:mloop.controllers:params [ 2.66561771 -4.68012391]
+INFO:mloop.controllers:cost -0.6743447545282565 +/- 0.0
+INFO:mloop.controllers:Run:141 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29108478]
+INFO:mloop.controllers:cost -0.876544832355398 +/- 0.0
+INFO:mloop.controllers:Run:142 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.2904777]
+INFO:mloop.controllers:cost -0.8765433064223284 +/- 0.0
+INFO:mloop.controllers:Run:143 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.25059773]
+INFO:mloop.controllers:cost -0.8762115328899238 +/- 0.0
+INFO:mloop.controllers:Run:144 (trainer)
+INFO:mloop.controllers:params [  2.69749061 -10.49514013]
+INFO:mloop.controllers:cost -0.7411707820835985 +/- 0.0
+INFO:mloop.controllers:Run:145 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.3133975]
+INFO:mloop.controllers:cost -0.8765313494814944 +/- 0.0
+INFO:mloop.controllers:Run:146 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.27859805]
+INFO:mloop.controllers:cost -0.8764829771073759 +/- 0.0
+INFO:mloop.controllers:Run:147 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30425894]
+INFO:mloop.controllers:cost -0.8765432249685632 +/- 0.0
+INFO:mloop.controllers:Run:148 (trainer)
+INFO:mloop.controllers:params [ 0.19775684 -7.70006065]
+INFO:mloop.controllers:cost -0.6144817973461709 +/- 0.0
+INFO:mloop.controllers:Run:149 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.26576313]
+INFO:mloop.controllers:cost -0.876375046654819 +/- 0.0
+INFO:mloop.controllers:Run:150 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.32965902]
+INFO:mloop.controllers:cost -0.8764201033885292 +/- 0.0
+INFO:mloop.controllers:Run:151 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29479429]
+INFO:mloop.controllers:cost -0.8765532932990637 +/- 0.0
+INFO:mloop.controllers:Run:152 (trainer)
+INFO:mloop.controllers:params [  1.30901406 -10.99592446]
+INFO:mloop.controllers:cost -0.6383472842868713 +/- 0.0
+INFO:mloop.controllers:Run:153 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.25860331]
+INFO:mloop.controllers:cost -0.8763090739193572 +/- 0.0
+INFO:mloop.controllers:Run:154 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.31435851]
+INFO:mloop.controllers:cost -0.8765274343362957 +/- 0.0
+INFO:mloop.controllers:Run:155 (machine learner)
+INFO:mloop.controllers:params [ 0.       -0.268488]
+INFO:mloop.controllers:cost -0.8764084803581591 +/- 0.0
+INFO:mloop.controllers:Run:156 (trainer)
+INFO:mloop.controllers:params [ 6.73859078 -4.72823288]
+INFO:mloop.controllers:cost -0.5971051155925128 +/- 0.0
+INFO:mloop.controllers:Run:157 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29275619]
+INFO:mloop.controllers:cost -0.8765488233303342 +/- 0.0
+INFO:mloop.controllers:Run:158 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.27955151]
+INFO:mloop.controllers:cost -0.8764856334140011 +/- 0.0
+INFO:mloop.controllers:Run:159 (machine learner)
+INFO:mloop.controllers:params [ 0.        -0.3078168]
+INFO:mloop.controllers:cost -0.8765476647533058 +/- 0.0
+INFO:mloop.controllers:Run:160 (trainer)
+INFO:mloop.controllers:params [ 3.53646284 -8.05614946]
+INFO:mloop.controllers:cost -0.7566145348079907 +/- 0.0
+INFO:mloop.controllers:Run:161 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30632967]
+INFO:mloop.controllers:cost -0.8765473723425417 +/- 0.0
+INFO:mloop.controllers:Run:162 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.27716511]
+INFO:mloop.controllers:cost -0.8764770816283953 +/- 0.0
+INFO:mloop.controllers:Run:163 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30431848]
+INFO:mloop.controllers:cost -0.8765434086682319 +/- 0.0
+INFO:mloop.controllers:Run:164 (trainer)
+INFO:mloop.controllers:params [ 7.1291514  -6.69058293]
+INFO:mloop.controllers:cost -0.596640963881339 +/- 0.0
+INFO:mloop.controllers:Run:165 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.36284276]
+INFO:mloop.controllers:cost -0.8759004413851691 +/- 0.0
+INFO:mloop.controllers:Run:166 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.32894062]
+INFO:mloop.controllers:cost -0.8764260617491472 +/- 0.0
+INFO:mloop.controllers:Run:167 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.28984805]
+INFO:mloop.controllers:cost -0.8765414572023669 +/- 0.0
+INFO:mloop.controllers:Run:168 (trainer)
+INFO:mloop.controllers:params [ 4.86816971 -6.87144607]
+INFO:mloop.controllers:cost -0.7136842559024235 +/- 0.0
+INFO:mloop.controllers:Run:169 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.29537972]
+INFO:mloop.controllers:cost -0.876553778202573 +/- 0.0
+INFO:mloop.controllers:Run:170 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.28373587]
+INFO:mloop.controllers:cost -0.8765009794695461 +/- 0.0
+INFO:mloop.controllers:Run:171 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.31276728]
+INFO:mloop.controllers:cost -0.8765330900480691 +/- 0.0
+INFO:mloop.controllers:Run:172 (trainer)
+INFO:mloop.controllers:params [ 3.05550751 -1.84096415]
+INFO:mloop.controllers:cost -0.6523329087497732 +/- 0.0
+INFO:mloop.controllers:Run:173 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.25687108]
+INFO:mloop.controllers:cost -0.8762912120729922 +/- 0.0
+INFO:mloop.controllers:Run:174 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.21969917]
+INFO:mloop.controllers:cost -0.8757147629940166 +/- 0.0
+INFO:mloop.controllers:Run:175 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.30849116]
+INFO:mloop.controllers:cost -0.8765470382969858 +/- 0.0
+INFO:mloop.controllers:Run:176 (trainer)
+INFO:mloop.controllers:params [ 1.27971924 -6.5053966 ]
+INFO:mloop.controllers:cost -0.6110869350112248 +/- 0.0
+INFO:mloop.controllers:Run:177 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.23926778]
+INFO:mloop.controllers:cost -0.8760513334134215 +/- 0.0
+INFO:mloop.controllers:Run:178 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.22836013]
+INFO:mloop.controllers:cost -0.8758521884423229 +/- 0.0
+INFO:mloop.controllers:Run:179 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.33934948]
+INFO:mloop.controllers:cost -0.876307110213623 +/- 0.0
+INFO:mloop.controllers:Run:180 (trainer)
+INFO:mloop.controllers:params [ 6.8101098  -8.25862037]
+INFO:mloop.controllers:cost -0.5990404053810763 +/- 0.0
+INFO:mloop.controllers:Run:181 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.26653091]
+INFO:mloop.controllers:cost -0.8763850764727938 +/- 0.0
+INFO:mloop.controllers:Run:182 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.26893081]
+INFO:mloop.controllers:cost -0.8764135266078225 +/- 0.0
+INFO:mloop.controllers:Run:183 (machine learner)
+INFO:mloop.controllers:params [ 0.         -0.23349818]
+INFO:mloop.controllers:cost -0.875958729997571 +/- 0.0
+INFO:mloop.controllers:Run:184 (trainer)
+INFO:mloop.controllers:params [ 4.74697398 -0.47214241]
+WARNING:mloop.controllers:!!! Do not give the interrupt signal again !!! 
+ M-LOOP stopped with keyboard interupt or system exit. Please wait at least 1 minute for the threads to safely shut down. 
+ 
+WARNING:mloop.controllers:Closing down controller.
+DEBUG:mloop.controllers:ML learner end set.
+DEBUG:mloop.controllers:ML learner joined
+INFO:mloop.controllers:Machine learning learner did not provide best and/or all minima.
+DEBUG:mloop.controllers:Learner end event set.
+DEBUG:mloop.controllers:Interface end event set.
+DEBUG:mloop.learners.1:Learner end signal received. Ending
+DEBUG:mloop.controllers:Learner joined.
