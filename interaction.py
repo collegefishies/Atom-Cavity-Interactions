@@ -242,7 +242,7 @@ def simulation(Natoms=3,detuning=0,
 	Qsq = np.sqrt(s_maxmax/s_minmin)
 	contrast = np.sqrt(sx**2+sy**2 + sz**2)/(Natoms/2) #normalized to maximum spin vector length
 	area = np.sqrt(s_maxmax*s_minmin)/stdVar #normalized to the CSS std dev.
-	wineland_parameter = Qsq/(contrast**2 * area)
+	wineland_parameter = Qsq*contrast**2/(area)
 	max_wineland_time = t[np.argmax(wineland_parameter)]
 
 	#save the calculated single scalar parameters
