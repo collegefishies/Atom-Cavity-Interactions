@@ -15,13 +15,14 @@ For the Julia, script
 - ModelingToolkit
 - OrdinaryDiffEq
 - PyPlot
+- Tricks
 
 ## Files
 
 1. **interaction.py**: This is the library that contains the simulator code.
 2. **interaction_picture_cli.py**: This wraps that library in a CLI interface.
 3. **interaction_picture_batch_semaphore.py**: This allows for parallelization of the cli picture for sweeping through parameters.
-4. **cavity_squeezing.jl**: This is a Julia Script written by Christoph Hotter. It can run much faster code using the Heisenberg picture and their QuantumCumulants.
+4. **cavity_squeezing.jl**: This is a Julia Script written by Christoph Hotter. It can run much faster code using the Heisenberg picture and their QuantumCumulants. Julia has a massive speedup, if you keep the interpreter running it open. Running the script fresh takes a lot of time.
 ## Usage
 
 To run the code, navigate to the project directory and use the following command:
