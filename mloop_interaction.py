@@ -63,9 +63,9 @@ class SimulationInterface(mli.Interface):
 		#scale em up, cus the function will descale em later.
 		omega = params[0]*SCALE
 		detuning = params[1]*SCALE
-		# logging.info("Omega: ", float(omega))
-		# logging.info("Detuning: ", float(detuning))
-
+		ETA = params[2]
+		# N = int(params[3])
+		G_SI = 2*np.pi*np.sqrt(4*ETA*GAMMA_SI*KAPPA_SI)
 		try:
 			results = simulation(
 				Natoms=3,
@@ -129,21 +129,34 @@ def main():
 	#and any options you want to set
 
 	params = {
-		'omega': [0,10],
-		'detuning': [-12, 0]
+		'omega':   	[0,     	0,     	0.00001],
+		'detuning':	[0,     	-20,   	0],
+		'eta':     	[1.2276,	1.2276,	1.2277],
+		# 'N' :    	[3,     	3,     	3.1],
 	}
-
+	param_names = list(params.keys())
+	zipped = list(zip(*params.values()))
+	first_params = list(zipped[0])
+	min_boundary = list(zipped[1])
+	max_boundary = list(zipped[2])
+	print(param_names)
+	print(first_params)
+	print(min_boundary)
+	print(max_boundary)
 	l.info("Param range: ", params)
 	controller = mlc.create_controller(
 			interface,
 			controller_type='neural_net',
 			max_num_runs=1000,
-			num_params = 2,
-			min_boundary = [0,-20],
-			max_boundary = [10,0],
-			first_params = [9.6179344 -15],
+			max_num_runs_without_better_params = 100,
+			max_duration=36000,
+			num_params = len(first_params),
+			min_boundary = min_boundary,
+			max_boundary = max_boundary,
+			# trust_region = 1, #freedom to randomly sample the full range.
+			first_params = first_params,
 			training_type='random',
-			param_names = ['omega', 'detuning']
+			param_names = param_names
 		)
 
 	#to run m-loop and find the optimal parameters just use the controller method optimize
