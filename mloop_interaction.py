@@ -63,8 +63,8 @@ class SimulationInterface(mli.Interface):
 		#scale em up, cus the function will descale em later.
 		omega = params[0]*SCALE
 		detuning = params[1]*SCALE
-		logging.info("Omega: ", omega)
-		logging.info("Detuning: ", detuning)
+		# logging.info("Omega: ", float(omega))
+		# logging.info("Detuning: ", float(detuning))
 
 		try:
 			results = simulation(
@@ -81,8 +81,8 @@ class SimulationInterface(mli.Interface):
 				T=60,
 				SAVE_ARRAYS=True)
 
-			logging.info("Max Wineland Parameter: ", results['max_wineland_parameter'])
-			logging.info("Max Wineland Time: ", results['max_wineland_time'])
+			# logging.info("Max Wineland Parameter: ", results['max_wineland_parameter'])
+			# logging.info("Max Wineland Time: ", results['max_wineland_time'])
 			cost = -results['max_wineland_parameter']
 			uncer = 0
 			bad = False
@@ -110,7 +110,7 @@ def sample_main():
 			max_num_runs=1000,
 			num_params = 2,
 			min_boundary = [0,0],
-			max_boundary = [1,1]
+			max_boundary = [1,1],
 		)
 
 	#to run m-loop and find the optimal parameters just use the controller method optimize
@@ -139,8 +139,11 @@ def main():
 			controller_type='neural_net',
 			max_num_runs=1000,
 			num_params = 2,
-			min_boundary = [0,-12],
-			max_boundary = [10,0]
+			min_boundary = [0,-20],
+			max_boundary = [10,0],
+			first_params = [9.6179344 -15],
+			training_type='random',
+			param_names = ['omega', 'detuning']
 		)
 
 	#to run m-loop and find the optimal parameters just use the controller method optimize

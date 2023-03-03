@@ -573,3 +573,284 @@ DEBUG:mloop.controllers:Learner end event set.
 DEBUG:mloop.controllers:Interface end event set.
 DEBUG:mloop.learners.1:Learner end signal received. Ending
 DEBUG:mloop.controllers:Learner joined.
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+DEBUG:mloop.learners.1:Random learner init completed.
+DEBUG:mloop.learners.2:Learner init completed.
+INFO:mloop.controllers:Optimization started.
+DEBUG:mloop.learners.1:Starting Random Learner
+DEBUG:mloop.interfaces:Entering main loop of interface.
+DEBUG:mloop.controllers:ML learner started.
+DEBUG:mloop.controllers:Starting training optimization.
+INFO:mloop.controllers:Run:1 (training)
+INFO:mloop.controllers:params [ 10. -15.]
+WARNING:mloop.controllers:!!! Do not give the interrupt signal again !!! 
+ M-LOOP stopped with keyboard interupt or system exit. Please wait at least 1 minute for the threads to safely shut down. 
+ 
+WARNING:mloop.controllers:Closing down controller.
+DEBUG:mloop.controllers:ML learner end set.
+DEBUG:mloop.controllers:ML learner joined
+INFO:mloop.controllers:Machine learning learner did not provide best and/or all minima.
+DEBUG:mloop.controllers:Learner end event set.
+DEBUG:mloop.controllers:Interface end event set.
+DEBUG:mloop.learners.1:Learner end signal received. Ending
+DEBUG:mloop.learners.1:Performing shut down of learner.
+DEBUG:mloop.learners.1:Ended Random Learner
+DEBUG:mloop.controllers:Learner joined.
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+DEBUG:mloop.learners.1:Random learner init completed.
+DEBUG:mloop.learners.2:Learner init completed.
+INFO:mloop.controllers:Optimization started.
+DEBUG:mloop.learners.1:Starting Random Learner
+DEBUG:mloop.interfaces:Entering main loop of interface.
+DEBUG:mloop.controllers:ML learner started.
+DEBUG:mloop.controllers:Starting training optimization.
+INFO:mloop.controllers:Run:1 (training)
+INFO:mloop.controllers:params [ 10. -15.]
+INFO:mloop.controllers:cost -0.9354298091141456 +/- 0.0
+INFO:mloop.controllers:Run:2 (training)
+INFO:mloop.controllers:params [  1.40619188 -10.07077796]
+INFO:mloop.controllers:cost -0.6523156899397464 +/- 0.0
+INFO:mloop.controllers:Run:3 (training)
+INFO:mloop.controllers:params [  4.76196193 -11.97275651]
+INFO:mloop.controllers:cost -0.605965511516635 +/- 0.0
+INFO:mloop.controllers:Run:4 (training)
+INFO:mloop.controllers:params [  4.02779911 -11.54910667]
+WARNING:mloop.controllers:!!! Do not give the interrupt signal again !!! 
+ M-LOOP stopped with keyboard interupt or system exit. Please wait at least 1 minute for the threads to safely shut down. 
+ 
+WARNING:mloop.controllers:Closing down controller.
+DEBUG:mloop.controllers:ML learner end set.
+DEBUG:mloop.controllers:ML learner joined
+INFO:mloop.controllers:Machine learning learner did not provide best and/or all minima.
+DEBUG:mloop.controllers:Learner end event set.
+DEBUG:mloop.controllers:Interface end event set.
+DEBUG:mloop.learners.1:Learner end signal received. Ending
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+DEBUG:mloop.learners.1:Random learner init completed.
+DEBUG:mloop.learners.2:Learner init completed.
+INFO:mloop.controllers:Optimization started.
+DEBUG:mloop.learners.1:Starting Random Learner
+DEBUG:mloop.interfaces:Entering main loop of interface.
+DEBUG:mloop.controllers:ML learner started.
+DEBUG:mloop.controllers:Starting training optimization.
+INFO:mloop.controllers:Run:1 (training)
+INFO:mloop.controllers:params [ 10. -15.]
+INFO:mloop.controllers:cost -0.9354298091141456 +/- 0.0
+INFO:mloop.controllers:Run:2 (training)
+INFO:mloop.controllers:params [ 0.24428378 -0.23483675]
+INFO:mloop.controllers:cost -0.8382218228160693 +/- 0.0
+INFO:mloop.controllers:Run:3 (training)
+INFO:mloop.controllers:params [ 0.42701651 -9.18690247]
+WARNING:mloop.controllers:!!! Do not give the interrupt signal again !!! 
+ M-LOOP stopped with keyboard interupt or system exit. Please wait at least 1 minute for the threads to safely shut down. 
+ 
+WARNING:mloop.controllers:Closing down controller.
+DEBUG:mloop.controllers:ML learner end set.
+DEBUG:mloop.controllers:ML learner joined
+INFO:mloop.controllers:Machine learning learner did not provide best and/or all minima.
+DEBUG:mloop.controllers:Learner end event set.
+DEBUG:mloop.controllers:Interface end event set.
+DEBUG:mloop.learners.1:Learner end signal received. Ending
+DEBUG:mloop.learners.1:Performing shut down of learner.
+DEBUG:mloop.learners.1:Ended Random Learner
+DEBUG:mloop.controllers:Learner joined.
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+DEBUG:mloop.learners.1:Random learner init completed.
+DEBUG:mloop.learners.2:Learner init completed.
+INFO:mloop.controllers:Optimization started.
+DEBUG:mloop.learners.1:Starting Random Learner
+DEBUG:mloop.interfaces:Entering main loop of interface.
+DEBUG:mloop.controllers:ML learner started.
+DEBUG:mloop.controllers:Starting training optimization.
+INFO:mloop.controllers:Run:1 (training)
+INFO:mloop.controllers:params [ 10. -15.]
+INFO:mloop.controllers:cost -0.9354298091141456 +/- 0.0
+INFO:mloop.controllers:Run:2 (training)
+INFO:mloop.controllers:params [ 4.58894964 -7.74685171]
+INFO:mloop.controllers:cost -0.7175698432258991 +/- 0.0
+INFO:mloop.controllers:Run:3 (training)
+INFO:mloop.controllers:params [ 2.45438897 -2.32161208]
+WARNING:mloop.controllers:!!! Do not give the interrupt signal again !!! 
+ M-LOOP stopped with keyboard interupt or system exit. Please wait at least 1 minute for the threads to safely shut down. 
+ 
+WARNING:mloop.controllers:Closing down controller.
+DEBUG:mloop.controllers:ML learner end set.
+DEBUG:mloop.controllers:ML learner joined
+INFO:mloop.controllers:Machine learning learner did not provide best and/or all minima.
+DEBUG:mloop.controllers:Learner end event set.
+DEBUG:mloop.controllers:Interface end event set.
+DEBUG:mloop.learners.1:Learner end signal received. Ending
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+DEBUG:mloop.learners.1:Random learner init completed.
+DEBUG:mloop.learners.2:Learner init completed.
+INFO:mloop.controllers:Optimization started.
+DEBUG:mloop.learners.1:Starting Random Learner
+DEBUG:mloop.interfaces:Entering main loop of interface.
+DEBUG:mloop.controllers:ML learner started.
+DEBUG:mloop.controllers:Starting training optimization.
+INFO:mloop.controllers:Run:1 (training)
+INFO:mloop.controllers:params [ 10. -15.]
+INFO:mloop.controllers:cost -0.9354298091141456 +/- 0.0
+INFO:mloop.controllers:Run:2 (training)
+INFO:mloop.controllers:params [  0.01983581 -10.27173492]
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+DEBUG:mloop.learners.1:Random learner init completed.
+DEBUG:mloop.learners.2:Learner init completed.
+INFO:mloop.controllers:Optimization started.
+DEBUG:mloop.learners.1:Starting Random Learner
+DEBUG:mloop.interfaces:Entering main loop of interface.
+DEBUG:mloop.controllers:ML learner started.
+DEBUG:mloop.controllers:Starting training optimization.
+INFO:mloop.controllers:Run:1 (training)
+INFO:mloop.controllers:params [ 10. -15.]
+DEBUG:matplotlib.pyplot:Loaded backend macosx version unknown.
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+DEBUG:mloop.learners.1:Random learner init completed.
+DEBUG:mloop.learners.2:Learner init completed.
+INFO:mloop.controllers:Optimization started.
+DEBUG:mloop.learners.1:Starting Random Learner
+DEBUG:mloop.interfaces:Entering main loop of interface.
+DEBUG:mloop.controllers:ML learner started.
+DEBUG:mloop.controllers:Starting training optimization.
+INFO:mloop.controllers:Run:1 (training)
+INFO:mloop.controllers:params [ 10. -15.]
+INFO:mloop.controllers:cost -0.9354298091141456 +/- 0.0
+INFO:mloop.controllers:Run:2 (training)
+INFO:mloop.controllers:params [ 6.44917295 -5.27361124]
+INFO:mloop.controllers:cost -0.5981004932248585 +/- 0.0
+INFO:mloop.controllers:Run:3 (training)
+INFO:mloop.controllers:params [ 4.27831207 -2.9680854 ]
+INFO:mloop.controllers:cost -0.6506091551358467 +/- 0.0
+INFO:mloop.controllers:Run:4 (training)
+INFO:mloop.controllers:params [  7.11486314 -12.56152926]
+INFO:mloop.controllers:cost -0.6027148314276607 +/- 0.0
+INFO:mloop.controllers:Run:5 (training)
+INFO:mloop.controllers:params [ 8.30301504 -2.69101475]
+INFO:mloop.controllers:cost -0.5991985076561654 +/- 0.0
+INFO:mloop.controllers:Run:6 (training)
+INFO:mloop.controllers:params [ 2.51619044 -1.56153626]
+INFO:mloop.controllers:cost -0.6795261508111553 +/- 0.0
+INFO:mloop.controllers:Run:7 (training)
+INFO:mloop.controllers:params [ 0.71761429 -5.15645324]
+INFO:mloop.controllers:cost -0.6170985619584148 +/- 0.0
+INFO:mloop.controllers:Run:8 (training)
+INFO:mloop.controllers:params [ 8.26175101 -4.65237261]
+INFO:mloop.controllers:cost -0.5937878006151228 +/- 0.0
+INFO:mloop.controllers:Run:9 (training)
+INFO:mloop.controllers:params [ 2.525613   -2.10359572]
+INFO:mloop.controllers:cost -0.761479594200915 +/- 0.0
+INFO:mloop.controllers:Run:10 (training)
+INFO:mloop.controllers:params [ 1.82782489 -0.94627243]
+INFO:mloop.controllers:cost -0.6977400917108288 +/- 0.0
+INFO:mloop.controllers:Run:11 (training)
+INFO:mloop.controllers:params [ 6.86287102 -9.18573288]
+DEBUG:mloop.controllers:Starting ML optimization.
+INFO:mloop.controllers:cost -0.5975253001065913 +/- 0.0
+DEBUG:mloop.controllers:End training runs.
+INFO:mloop.controllers:Run:12 (trainer)
+INFO:mloop.controllers:params [ 2.18896863 -4.12165725]
+INFO:mloop.controllers:cost -0.669534589564854 +/- 0.0
+INFO:mloop.controllers:Run:13 (machine learner)
+INFO:mloop.controllers:params [ 10. -15.]
+INFO:mloop.controllers:cost -0.9354298091141456 +/- 0.0
+INFO:mloop.controllers:Run:14 (machine learner)
+INFO:mloop.controllers:params [ 10. -15.]
+INFO:mloop.controllers:cost -0.9354298091141456 +/- 0.0
+INFO:mloop.controllers:Run:15 (machine learner)
+INFO:mloop.controllers:params [ 10.         -13.55669257]
+INFO:mloop.controllers:cost -0.650483904851543 +/- 0.0
+INFO:mloop.controllers:Run:16 (trainer)
+INFO:mloop.controllers:params [ 6.0905464  -8.86312863]
+INFO:mloop.controllers:cost -0.621620135349986 +/- 0.0
+INFO:mloop.controllers:Run:17 (machine learner)
+INFO:mloop.controllers:params [  9.35021377 -15.        ]
+INFO:mloop.controllers:cost -0.9187628344241593 +/- 0.0
+INFO:mloop.controllers:Run:18 (machine learner)
+INFO:mloop.controllers:params [  9.26944772 -15.        ]
+INFO:mloop.controllers:cost -0.9103850739545954 +/- 0.0
+INFO:mloop.controllers:Run:19 (machine learner)
+INFO:mloop.controllers:params [  9.78943037 -15.        ]
+INFO:mloop.controllers:cost -0.9464448357602427 +/- 0.0
+INFO:mloop.controllers:Run:20 (trainer)
+INFO:mloop.controllers:params [ 7.95825056 -4.22476213]
+INFO:mloop.controllers:cost -0.5954701012050888 +/- 0.0
+INFO:mloop.controllers:Run:21 (machine learner)
+INFO:mloop.controllers:params [  9.29422531 -15.        ]
+INFO:mloop.controllers:cost -0.9194999494351694 +/- 0.0
+INFO:mloop.controllers:Run:22 (machine learner)
+INFO:mloop.controllers:params [  9.6179344 -15.       ]
+INFO:mloop.controllers:cost -0.9421114617574132 +/- 0.0
+INFO:mloop.controllers:Run:23 (machine learner)
+INFO:mloop.controllers:params [  9.64500076 -15.        ]
+INFO:mloop.controllers:cost -0.9385145212820563 +/- 0.0
+INFO:mloop.controllers:Run:24 (trainer)
+INFO:mloop.controllers:params [ 9.78041291 -5.40235347]
+INFO:mloop.controllers:cost -0.6519208121456489 +/- 0.0
+INFO:mloop.controllers:Run:25 (machine learner)
+INFO:mloop.controllers:params [  9.77864408 -15.        ]
+INFO:mloop.controllers:cost -0.9435078193169562 +/- 0.0
+INFO:mloop.controllers:Run:26 (machine learner)
+INFO:mloop.controllers:params [  9.8189448 -15.       ]
+WARNING:mloop.controllers:!!! Do not give the interrupt signal again !!! 
+ M-LOOP stopped with keyboard interupt or system exit. Please wait at least 1 minute for the threads to safely shut down. 
+ 
+WARNING:mloop.controllers:Closing down controller.
+DEBUG:mloop.controllers:ML learner end set.
+DEBUG:mloop.controllers:ML learner joined
+INFO:mloop.controllers:Machine learning learner did not provide best and/or all minima.
+DEBUG:mloop.controllers:Learner end event set.
+DEBUG:mloop.controllers:Interface end event set.
+DEBUG:mloop.learners.1:Learner end signal received. Ending
+DEBUG:mloop.learners.1:Performing shut down of learner.
+DEBUG:mloop.learners.1:Ended Random Learner
+DEBUG:mloop.controllers:Learner joined.
+DEBUG:mloop.interfaces:Interface ended
+DEBUG:mloop.controllers:Interface joined.
+INFO:mloop.controllers:Optimization ended because:
+INFO:mloop.controllers:Results:
+INFO:mloop.controllers:	* Best parameters found:[  9.78943037 -15.        ]
+INFO:mloop.controllers:	* Best cost returned:-0.9464448357602427 +/- 0.0
+INFO:mloop.controllers:	* Best run number:19
+INFO:mloop.controllers:M-LOOP Done.
+INFO:mloop:M-LOOP version 3.3.1
+DEBUG:mloop:M-LOOP Logger configured.
+DEBUG:mloop.interfaces:Creating interface.
+INFO:root:Param range: 
+DEBUG:mloop.controllers:Controller init completed.
+DEBUG:mloop.learners.1:Learner init completed.
+ERROR:mloop.learners.1:first_params has the wrong number of parameters:array([-5.3820656])
