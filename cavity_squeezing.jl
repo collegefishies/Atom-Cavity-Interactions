@@ -1,9 +1,15 @@
 #Written by Cristoph Hotter (Mar 3, 2023)
+println("Adding Libraries")
 using QuantumCumulants
+println("Added QC")
 using ModelingToolkit
+println("Added ModelingToolkit")
 using OrdinaryDiffEq
+println("Added OrdinaryDiffEq")
 using PyPlot; pygui(true)
+println("Added PyPlot")
 
+println("Adding Hilbert Space")
 hc = FockSpace(:cavity)
 ha = NLevelSpace(:atom, 3)
 h = hc ⊗ ha
@@ -21,7 +27,7 @@ Transition(h,:σ,1,1)
 i = Index(h,:i,N,ha)
 j = Index(h,:j,N,ha)
 
-
+println("Adding Hamiltonian")
 H0 = -Δc*a'a - Δ2*∑(σ(2,2,i),i) - Δ3*∑(σ(3,3,i),i)
 Hda = Ω*∑( σ(2,1,i) + σ(1,2,i), i)
 Hdc = λ*(a' + a)
@@ -31,16 +37,17 @@ H = H0 + Hda + Hdc + Hint
 J = [a, σ(2,3,i)]
 rates = [κ, Γ]
 
+println("Caclulating Equations")
 ops = [a'a, σ(2,2,j)]
 eqs = meanfield(ops, H, J;rates, order=2)
 
 eqs_c = complete(eqs)
 eqs_sc = scale(eqs_c)
-length(eqs_sc)
-
+println("Length of eqs_sc: ", length(eqs_sc))
 @named sys = ODESystem(eqs_sc)
 
 # Initial state
+println("Setting up Initial State")
 u0_ = zeros(ComplexF64, length(eqs_sc))
 # System parameters
 #Γ κ Ω g λ N Δc Δ2 Δ3
@@ -60,6 +67,7 @@ p0_ = [Γ_, κ_, Ω_, 0g_, 0λ_, N_, Δc_, Δ2_, Δ3_]
 tΠ2 = π/4Ω_
 prob_ = ODEProblem(sys,u0_,(0.0, tΠ2), ps.=>p0_)
 
+println("Solving the ODE.")
 sol_ = solve(prob_,Tsit5();abstol=1e-10, reltol=1e-10, maxiters=1e7)
 sol_[σ(2,2,1)][end]
 
@@ -74,8 +82,8 @@ sol = solve(prob,Tsit5(),maxiters=1e7)
 nt = sol[a'a]
 t = sol.t
 
+println("Plotting")
 close("n(t")
 figure("n(t)")
 plot(t, nt)
 
-λ_^2/(κ_^2 + Δc_^2)
