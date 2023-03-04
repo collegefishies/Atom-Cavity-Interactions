@@ -12,10 +12,11 @@ For the Julia, script
 - julia
 - pyJulia
 - QuantumCumulants
-- ModelingToolkit
+- ModelingToolkit@v8.21.0
 - OrdinaryDiffEq
 - PyPlot
 - Tricks
+
 
 ## Files
 
@@ -37,3 +38,36 @@ This command will generate a batch of .csv files and compress them altogether at
 
 The output of the example command will be a batch of .csv files. The total time taken to complete the process will also be displayed.
 
+## Christoph's Julia Packages
+
+Run this commands in Julia after typing the bracket `]`
+```
+add CollectiveSpins@0.1.5
+add Colors@0.12.10
+add Combinatorics@1.0.2
+add DiffEqCallbacks@2.25.0
+add DifferentialEquations@7.1.0
+add FileIO@1.16.0
+add FixedPointNumbers@0.8.4
+add IJulia@1.24.0
+add ImageMagick@1.2.2
+add Interpolations@0.14.7
+add JLD2@0.4.30
+add Juno@0.8.4
+add Latexify@0.15.18
+add LsqFit@0.13.0
+add MacroTools@0.5.10
+add ModelingToolkit@8.21.0
+add OrdinaryDiffEq@6.11.2
+add Plots@1.38.5
+add ProgressMeter@1.7.2
+add PyCall@1.95.1
+add PyPlot@2.11.0
+add QuantumCumulants@0.2.13
+add QuantumOptics@1.0.8
+add QuantumOpticsBase@0.3.8
+add SteadyStateDiffEq@1.12.0
+add StochasticDiffEq@6.44.0
+add SymbolicUtils@0.19.11
+add Symbolics@4.14.0
+add WignerSymbols@2.0.0```

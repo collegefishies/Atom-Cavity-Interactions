@@ -1,5 +1,12 @@
+
 #Written by Cristoph Hotter (Mar 3, 2023)
-println("Adding Libraries")
+using Pkg
+# Pkg.add(PackageSpec(name="QuantumCumulants", version="0.2.13"))
+# Pkg.add(PackageSpec(name="ModelingToolkit", version="8.21.0"))
+# Pkg.add(PackageSpec(name="OrdinaryDiffEq", version="6.11.2"))
+# Pkg.add(PackageSpec(name="PyPlot", version="2.11.0"))
+
+println("Adding QuantumCumulants")
 using QuantumCumulants
 println("Added QC")
 using ModelingToolkit
@@ -8,7 +15,6 @@ using OrdinaryDiffEq
 println("Added OrdinaryDiffEq")
 using PyPlot; pygui(true)
 println("Added PyPlot")
-
 println("Adding Hilbert Space")
 hc = FockSpace(:cavity)
 ha = NLevelSpace(:atom, 3)
