@@ -2,7 +2,12 @@ import qutip
 from qutip import mesolve
 from qutip.ui.progressbar import TextProgressBar, BaseProgressBar
 import numpy as np
+import julia
+import time
 
+print("Setting up Julia environment...", flush=True)
+jl = julia.Julia(compiled_modules=False)
+print("Done.", flush=True)
 SAVE_ARRAYS = False
 
 GAMMA_SI = 180e3/2/np.pi
@@ -279,6 +284,8 @@ def simulation(Natoms=3,detuning=0,
 
 class JuliaSimulator():
 	def __init__(self):
+		print("Initializing the Julia Simulator...", flush=True)
+		print("Add the packages might take a few minutes the first time it's executed...",flush=True)
 		self.parameters_to_save = {}
 		self._import_packages()
 		self._build_quantum_system()
@@ -288,6 +295,8 @@ class JuliaSimulator():
 
 	def _import_packages(self):
 		#import the necessary packages
+		print("Importing the necessary packages in Julia...", flush=True)
+		start_time = time.time()
 		pkgs = {
 			"QuantumCumulants": "0.2.13",
 			"ModelingToolkit": "8.21.0",
@@ -301,6 +310,15 @@ class JuliaSimulator():
 			print(cmd)
 		for cmd in commands:
 			jl.eval(cmd)
+
+		print("Adding QuantumCumulants...", flush=True)
+		jl.eval("@show using QuantumCumulants")
+		print("Adding ModelingToolkit...", flush=True)
+		jl.eval("@show using ModelingToolkit")
+		print("Adding OrdinaryDiffEq...", flush=True)
+		jl.eval("@show using OrdinaryDiffEq")
+		end_time = time.time()
+		print(f"Adding packages took {end_time-start_time:.3f} seconds", flush=True)
 	def _build_quantum_system(self):
 		jl.eval("hc = FockSpace(:cavity)")
 		jl.eval("ha = NLevelSpace(:atom, 3)")
@@ -334,14 +352,14 @@ class JuliaSimulator():
 		jl.eval("eqs = meanfield(ops, H, J;rates, order=2)")
 		jl.eval("eqs_c = complete(eqs)")
 		jl.eval("eqs_sc = scale(eqs_c)")
-		jl.eval("println("Length of eqs_sc: ", length(eqs_sc))")
+		jl.eval("println(\"Length of eqs_sc: \", length(eqs_sc))")
 
 	def _get_ode(self):
 		jl.eval("@named sys = ODESystem(eqs_sc)")
 
 	def _set_up_initial_state(self):
 		# Initial state
-		jl.eval("println("Setting up Initial State")")
+		jl.eval("println(\"Setting up Initial State\")")
 		jl.eval("u0_ = zeros(ComplexF64, length(eqs_sc))")
 
 	def _set_system_parameters(self, Natoms=3,detuning=0,
