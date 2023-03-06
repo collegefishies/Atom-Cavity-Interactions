@@ -34,77 +34,77 @@ def pretty_print_dict(dictionary):
 		print(f"{key}: {value}")
 
 def rotated_variance(sx, sy, sz, sxy, syz, szx, sxx, syy, szz, axis, angle):
-    """Calculates the rotated moments over time of a spin-1/2 system from its expectation values of spin operators.
-    
-    Args:
-        sx (ndarray): Array of expectation values of sigma_x.
-        sy (ndarray): Array of expectation values of sigma_y.
-        sz (ndarray): Array of expectation values of sigma_z.
-        sxx (float): Expectation value of sigma_x^2.
-        syy (float): Expectation value of sigma_y^2.
-        szz (float): Expectation value of sigma_z^2.
-        axis (ndarray): String defining the rotation axis 'x', 'y', 'z'.
-        angle (float): Angle of rotation in radians.
-        
-    Returns:
-        float: The rotated variance.
-    """
-    
-    if axis == 'x' or axis == 'X':
-        s0  = sy
-        s1  = sz
-        s01 = sxy
-        s00 = syy
-        s11 = szz
-    elif axis == 'y' or axis == 'Y':
-        s0  = sz
-        s1  = sx
-        s01 = szx
-        s00 = szz
-        s11 = sxx
-    elif axis == 'z' or axis == 'Z':
-        s0  = sx
-        s1  = sy
-        s01 = sxy
-        s00 = sxx
-        s11 = syy
-    else:
-        raise ValueError("Invalid rotation axis. Must be 'x', 'y', or 'z'.")
-        
-    
-    #calculate the rotation moments sa, saa, sb, sbb. For 'x', sa = s0, sb = s1 at no rotation
-    #sa = s0*cos(angle) + s1*sin(angle)
-    #saa = s00*cos(angle)^2 + s11*sin(angle)^2 + (s01+s10)*cos(angle)*sin(angle).
-    
-    c = np.cos(angle)
-    s = np.sin(angle)
-    
-    sa = s0 * c + s1 * s
-    sb = -s0 * s + s1 * c
-    
-    saa = s00 * c ** 2 + s11 * s ** 2 +  s01 * c * s
-    sbb = s00 * s ** 2 + s11 * c ** 2 -  s01 * c * s
-    
-    #return the variances over time
-    return (saa - sa**2, sbb - sb**2)
-     
+	"""Calculates the rotated moments over time of a spin-1/2 system from its expectation values of spin operators.
+	
+	Args:
+		sx (ndarray): Array of expectation values of sigma_x.
+		sy (ndarray): Array of expectation values of sigma_y.
+		sz (ndarray): Array of expectation values of sigma_z.
+		sxx (float): Expectation value of sigma_x^2.
+		syy (float): Expectation value of sigma_y^2.
+		szz (float): Expectation value of sigma_z^2.
+		axis (ndarray): String defining the rotation axis 'x', 'y', 'z'.
+		angle (float): Angle of rotation in radians.
+		
+	Returns:
+		float: The rotated variance.
+	"""
+	
+	if axis == 'x' or axis == 'X':
+		s0  = sy
+		s1  = sz
+		s01 = sxy
+		s00 = syy
+		s11 = szz
+	elif axis == 'y' or axis == 'Y':
+		s0  = sz
+		s1  = sx
+		s01 = szx
+		s00 = szz
+		s11 = sxx
+	elif axis == 'z' or axis == 'Z':
+		s0  = sx
+		s1  = sy
+		s01 = sxy
+		s00 = sxx
+		s11 = syy
+	else:
+		raise ValueError("Invalid rotation axis. Must be 'x', 'y', or 'z'.")
+		
+	
+	#calculate the rotation moments sa, saa, sb, sbb. For 'x', sa = s0, sb = s1 at no rotation
+	#sa = s0*cos(angle) + s1*sin(angle)
+	#saa = s00*cos(angle)^2 + s11*sin(angle)^2 + (s01+s10)*cos(angle)*sin(angle).
+	
+	c = np.cos(angle)
+	s = np.sin(angle)
+	
+	sa = s0 * c + s1 * s
+	sb = -s0 * s + s1 * c
+	
+	saa = s00 * c ** 2 + s11 * s ** 2 +  s01 * c * s
+	sbb = s00 * s ** 2 + s11 * c ** 2 -  s01 * c * s
+	
+	#return the variances over time
+	return (saa - sa**2, sbb - sb**2)
+	 
 def max_min_variance(sx, sy, sz, sxy, syz, szx, sxx, syy, szz, axis):
-    variances = []
-    for angle in np.linspace(0,2*np.pi, 180):
-        x,y = rotated_variance(sx, sy, sz, sxy, syz, szx, sxx, syy, szz, axis, angle)
-        
-        variances.append(x)
-        
-    #convert this to a numpy array
-    variances = np.array(variances)
+	variances = []
+	for angle in np.linspace(0,2*np.pi, 180):
+		x,y = rotated_variance(sx, sy, sz, sxy, syz, szx, sxx, syy, szz, axis, angle)
+		
+		variances.append(x)
+		
+	#convert this to a numpy array
+	variances = np.array(variances)
 
 
-    #and take max over the new dimension
-    max_variance_over_time = np.max(variances, axis=0)
-    min_variance_over_time = np.min(variances, axis=0)
-        
-        
-    return max_variance_over_time, min_variance_over_time
+	#and take max over the new dimension
+	max_variance_over_time = np.max(variances, axis=0)
+	min_variance_over_time = np.min(variances, axis=0)
+		
+		
+	return max_variance_over_time, min_variance_over_time
 
 def simulation(Natoms=3,detuning=0,
 	Gamma_si=GAMMA_SI, 
@@ -277,3 +277,63 @@ def simulation(Natoms=3,detuning=0,
 
 	return parameters_to_save
 
+class JuliaSimulator():
+	def __init__(self):
+		self._import_packages()
+		self._build_quantum_system()
+		self._define_hamiltonian()
+		self._calculate_equations()
+		self._get_ode()
+
+	def _import_packages(self):
+		#import the necessary packages
+		pkgs = {
+			"QuantumCumulants": "0.2.13",
+			"ModelingToolkit": "8.21.0",
+			"OrdinaryDiffEq": "6.11.2",
+			"PyPlot": "2.11.0"
+		}
+		jl.eval("using Pkg"); commands = []
+		for key,val in pkgs.items():
+			commands.append(f'Pkg.add(PackageSpec(name="{key}", version="{val}"))')
+		for cmd in commands:
+			print(cmd)
+		for cmd in commands:
+			jl.eval(cmd)
+	def _build_quantum_system(self):
+		jl.eval("hc = FockSpace(:cavity)")
+		jl.eval("ha = NLevelSpace(:atom, 3)")
+		jl.eval("h = hc ⊗ ha")
+		jl.eval("Transition(h,:σ,1,1)")
+
+		jl.eval("@qnumbers a::Destroy(h)")
+		jl.eval("σ(α,β,i) = IndexedOperator(Transition(h,:σ,α,β),i)")
+		jl.eval("@cnumbers Γ κ Ω g λ N Δc Δ2 Δ3")
+		# jl.eval("@syms t::Real")
+		# jl.eval("@register_symbolic Ωt(t)")
+		# jl.eval("@register_symbolic λt(t)")
+
+		i = jl.eval("Index(h,:i,N,ha)")
+		j = jl.eval("Index(h,:j,N,ha)")
+
+	def _define_hamiltonian(self):
+		println("Adding Hamiltonian")
+		jl.eval("H0 = -Δc*a'a - Δ2*∑(σ(2,2,i),i) - Δ3*∑(σ(3,3,i),i)")
+		jl.eval("Hda = Ω*∑( σ(2,1,i) + σ(1,2,i), i)")
+		jl.eval("Hdc = λ*(a' + a)")
+		jl.eval("Hint = g*∑( (a'*σ(2,3,i) + a*(σ(3,2,i))) ,i)")
+		jl.eval("H = H0 + Hda + Hdc + Hint")
+
+		jl.eval("J = [a, σ(2,3,i)]")
+		jl.eval("rates = [κ, Γ]")
+
+	def _calculate_equations(self):
+		print("Calculating equations")
+		jl.eval("ops = [a'a, σ(2,2,j)]")
+		jl.eval("eqs = meanfield(ops, H, J;rates, order=2)")
+		jl.eval("eqs_c = complete(eqs)")
+		jl.eval("eqs_sc = scale(eqs_c)")
+		jl.eval("println("Length of eqs_sc: ", length(eqs_sc))")
+
+	def _get_ode(self):
+		jl.eval("@named sys = ODESystem(eqs_sc)")
