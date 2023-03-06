@@ -279,6 +279,7 @@ def simulation(Natoms=3,detuning=0,
 
 class JuliaSimulator():
 	def __init__(self):
+		self.parameters_to_save = {}
 		self._import_packages()
 		self._build_quantum_system()
 		self._define_hamiltonian()
@@ -337,3 +338,63 @@ class JuliaSimulator():
 
 	def _get_ode(self):
 		jl.eval("@named sys = ODESystem(eqs_sc)")
+
+	def _set_up_initial_state(self):
+		# Initial state
+		jl.eval("println("Setting up Initial State")")
+		jl.eval("u0_ = zeros(ComplexF64, length(eqs_sc))")
+
+	def _set_system_parameters(self, Natoms=3,detuning=0,
+		Gamma_si=GAMMA_SI, 
+		kappa_si=KAPPA_SI,
+		eta=ETA, 
+		g_si=G_SI,
+		omega_si=OMEGA_SI,
+		Lambda=LAMBDA_SI, #this parameter is the SHO driving strength
+		scale=SCALE,
+		T=60):
+		print("Warning: Eta is an ignored parameter.")
+		N = Natoms
+		gamma = Gamma_si/scale
+		kappa = kappa_si/scale
+		omega = omega_si/scale
+		g = g_si/scale
+		Lambda = Lambda/scale
+		detuning = detuning/scale
+
+		# System parameters
+		#Γ κ Ω g λ N Δc Δ2 Δ3
+		jl.eval(f"N_ = {N}") #3
+		jl.eval(f"Γ_ = {gamma}") #0.36
+		jl.eval(f"κ_ = {kappa}") #1.0
+		jl.eval(f"Ω_ = {omega}") #3.28
+		jl.eval(f"g_ = {g}") #1.15
+		jl.eval(f"λ_ = {Lambda}") #1 #10
+		jl.eval(f"Δc_ = {detuning}") #-9.67
+		jl.eval(f"Δ3_ = Δc_") #set the atom-cavity systems on resonance with one another.
+		jl.eval(f"Δ2_ = 0") #0 #detuning of the spin rabi drive and the ground spin states.
+
+		#collect parameters together
+		jl.eval("ps = [Γ, κ, Ω, g, λ, N, Δc, Δ2, Δ3]")
+		jl.eval("p0_ = [Γ_, κ_, Ω_, 0g_, 0λ_, N_, Δc_, Δ2_, Δ3_]")
+
+		#set up the initial state to a y-state
+		jl.eval("tΠ2 = π/4Ω_")
+		jl.eval("prob_ = ODEProblem(sys,u0_,(0.0, tΠ2), ps.=>p0_)")
+
+		#evaluate the system, and then calculate the corresponding y-state
+		jl.eval("sol_ = solve(prob_,Tsit5();abstol=1e-10, reltol=1e-10, maxiters=1e7)")
+		jl.eval("sol_[σ(2,2,1)][end]")
+		jl.eval("u0 = sol_.u[end]")
+
+		#set the system parameters to the actual working conditions
+		jl.eval("p0 = [Γ_, κ_, Ω_, g_, λ_, N_, Δc_, Δ2_, Δ3_]")
+		jl.eval(f"T = {T}")
+
+	def _solve_system(self):
+		jl.eval("prob = ODEProblem(sys,u0,(0.0, T), ps.=>p0)")
+		jl.eval("sol = solve(prob,Tsit5(),maxiters=1e7)")
+
+	def get_array(self, string):
+		return np.array(jl.eval(f"sol[{string}]"))
+
