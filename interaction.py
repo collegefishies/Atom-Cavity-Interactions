@@ -292,6 +292,7 @@ class JuliaSimulator():
 		self._define_hamiltonian()
 		self._calculate_equations()
 		self._get_ode()
+		print("JuliaSimulator initialized!")
 
 	def _import_packages(self):
 		#import the necessary packages
@@ -301,22 +302,37 @@ class JuliaSimulator():
 			"QuantumCumulants": "0.2.13",
 			"ModelingToolkit": "8.21.0",
 			"OrdinaryDiffEq": "6.11.2",
-			"PyPlot": "2.11.0"
+			# "PyPlot": "2.11.0"
 		}
 		jl.eval("using Pkg"); commands = []
 		for key,val in pkgs.items():
 			commands.append(f'Pkg.add(PackageSpec(name="{key}", version="{val}"))')
 		for cmd in commands:
-			print(cmd)
+			print(cmd, flush=True)
 		for cmd in commands:
+			_start_time = time.time()
 			jl.eval(cmd)
+			_end_time = time.time()
+			print(f"Evaluated: {cmd}!", flush=True)
+			print(f"Adding package took {_end_time-_start_time:.3f} seconds", flush=True)
 
 		print("Adding QuantumCumulants...", flush=True)
+		print("Usually takes 120 seconds...", flush=True)
+		_start_time = time.time()
 		jl.eval("@show using QuantumCumulants")
+		_end_time = time.time()
+		print()
+		print(f"Adding package took {_end_time-_start_time:.3f} seconds", flush=True)
 		print("Adding ModelingToolkit...", flush=True)
+		_start_time = time.time()
 		jl.eval("@show using ModelingToolkit")
+		_end_time = time.time()
+		print(f"Adding package took {_end_time-_start_time:.3f} seconds", flush=True)
 		print("Adding OrdinaryDiffEq...", flush=True)
+		_start_time = time.time()
 		jl.eval("@show using OrdinaryDiffEq")
+		_end_time = time.time()
+		print(f"Adding package took {_end_time-_start_time:.3f} seconds", flush=True)
 		end_time = time.time()
 		print(f"Adding packages took {end_time-start_time:.3f} seconds", flush=True)
 	def _build_quantum_system(self):
@@ -336,7 +352,7 @@ class JuliaSimulator():
 		j = jl.eval("Index(h,:j,N,ha)")
 
 	def _define_hamiltonian(self):
-		println("Adding Hamiltonian")
+		print("Adding Hamiltonian")
 		jl.eval("H0 = -Δc*a'a - Δ2*∑(σ(2,2,i),i) - Δ3*∑(σ(3,3,i),i)")
 		jl.eval("Hda = Ω*∑( σ(2,1,i) + σ(1,2,i), i)")
 		jl.eval("Hdc = λ*(a' + a)")
