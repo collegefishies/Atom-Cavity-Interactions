@@ -318,6 +318,7 @@ class JuliaSimulator():
 
 		print("Adding QuantumCumulants...", flush=True)
 		print("Usually takes 120 seconds...", flush=True)
+		print("", flush=True)
 		_start_time = time.time()
 		jl.eval("@show using QuantumCumulants")
 		_end_time = time.time()
@@ -348,8 +349,8 @@ class JuliaSimulator():
 		# jl.eval("@register_symbolic Ωt(t)")
 		# jl.eval("@register_symbolic λt(t)")
 
-		i = jl.eval("Index(h,:i,N,ha)")
-		j = jl.eval("Index(h,:j,N,ha)")
+		jl.eval("i = Index(h,:i,N,ha)")
+		jl.eval("j = Index(h,:j,N,ha)")
 
 	def _define_hamiltonian(self):
 		print("Adding Hamiltonian")
